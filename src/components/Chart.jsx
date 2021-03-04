@@ -25,9 +25,11 @@ export const Chart = ({ weatherValue }) => {
       setDataToChart({ labels, datasets });
     }
   }, [labels, datasets, weatherValue]);
+  // menor 30 /150
   return (
-    <div className="chart">
-      <Line data={dataToChart} />
-    </div>
+    <Line
+      data={dataToChart}
+      options={{ responsive: true, maintainAspectRatio: true }}
+    />
   );
 };
