@@ -17,38 +17,49 @@
     background-color: #e4e7f3;
     display: grid;
     grid-template-areas:
-      ". . . . . . . . . ."
-      ". . . . . . . . . ."
-      ". . . . . . . . . ."
-      ". . . . . . . . . ."
-      ". . . . . . . . . ."
-      ". . . . . . . . . ."
-      ". . . . . . . . . ."
-      ". . . . . . . . . ."
-      ". . . . . . . . . ."
-      ". . . . . . . . . ."
-      ". . . . . . . . . ."
-      ". . . . . . . . . ."
-      ". . . . . . . . . ."
-      ". . . . . . . . . ."
-      ". . . . . . . . . ."
-      ". . . . . . . . . ."
-      ". . . . . . . . . s";
+      ". . . . . . . . ."
+      ". . . . . . . . ."
+      ". . . . . . . . ."
+      ". . . . . . . . ."
+      ". . . . . . . . ."
+      ". . . . . . . . ."
+      ". . . . . . . . ."
+      ". . . . . . . . ."
+      ". . . . . . . . ."
+      ". . . . . . . . ."
+      ". . . . . . . . ."
+      ". . . . . . . . ."
+      ". . . . . . . . ."
+      ". . . . . . . . ."
+      ". . . . . . . . ."
+      ". . . . . . . . ."
+      ". . . . . . . . ."
+      ". . . . . . . . ."
+      ". . . . . . . . ."
+      ". . . . . . . . ."
+      ". . . . . . . . ."
+      ". . . . . . . . ."
+      ". . . . . . . . ."
+      ". . . . . . . . ."
+      ". . . . . . . . s";
     .square {
       grid-area: s;
+
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      align-items: center;
+
       background-color: transparent;
       width: 200px;
       height: 200px;
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      flex-flow: row wrap;
-      gap: 10px;
+
       &__dotted {
         background-color: #c0c7e1;
         border-radius: 100%;
-        width: 8px;
-        height: 8px;
+        width: 6px;
+        height: 6px;
+        margin: 9px;
       }
     }
   }
@@ -63,6 +74,10 @@
   justify-content: center;
   align-items: center;
   &__square {
+    @media only screen and (max-width: 768px) {
+      position: relative;
+      top: -30px;
+    }
     width: 80vw;
     height: 80vh;
     background-color: white;

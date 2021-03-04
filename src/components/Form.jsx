@@ -1,6 +1,5 @@
 import { useForm } from "react-hook-form";
 import "./style/index.scss";
-import Icon from "supercons";
 
 export const Form = ({ input, setInput }) => {
   const { handleSubmit, register } = useForm();
