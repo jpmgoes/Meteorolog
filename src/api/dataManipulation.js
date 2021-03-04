@@ -1,25 +1,35 @@
-export function handleWeekData({ daily }) {
+export function handleWeekData(params) {
+  if (!params) return;
+
+  const { daily } = params;
+
   const arrDataString = [];
-
-  const dataSetDailyTempMorning = { name: "Temp Morning", arr: [] };
-  const dataSetDailyTempDay = { name: "Temp Day", arr: [] };
-  const dataSetDailyTempEvening = { name: "Temp Evening", arr: [] };
-  const dataSetDailyTempNight = { name: "Temp Night", arr: [] };
-  const dataSetDailyTempMin = { name: "Temp Min", arr: [] };
-  const dataSetDailyTempMax = { name: "Temp Max", arr: [] };
-
-  const dataSetDailyFeelsLikeTempDay = { name: "Feels Like Temp Day", arr: [] };
-  const dataSetDailyTempFeelsLikeEvening = {
-    name: "Feels Like Temp Evening",
-    arr: [],
+  const dataSetDailyTemp = {
+    Day: { name: "Temp Day", arr: [], key: "day" },
+    Evening: { name: "Temp Evening", arr: [], key: "eve" },
+    Max: { name: "Temp Max", arr: [], key: "max" },
+    Min: { name: "Temp Min", arr: [], key: "min" },
+    Morning: { name: "Temp Morning", arr: [], key: "morn" },
+    Night: { name: "Temp Night", arr: [], key: "night" },
   };
-  const dataSetDailyTempFeelsLikeMorning = {
-    name: "Feels Like Temp Morning",
-    arr: [],
-  };
-  const dataSetDailyTempFeelsLikeNight = {
-    name: "Feels Like Temp Night",
-    arr: [],
+
+  const dataSetDailyTempFeelsLike = {
+    Day: { name: "Feels Like Temp Day", arr: [], key: "day" },
+    Evening: {
+      name: "Feels Like Temp Evening",
+      arr: [],
+      key: "eve",
+    },
+    Morning: {
+      name: "Feels Like Temp Morning",
+      arr: [],
+      key: "morn",
+    },
+    Night: {
+      name: "Feels Like Temp Night",
+      arr: [],
+      key: "night",
+    },
   };
 
   for (const day of daily) {
@@ -28,31 +38,23 @@ export function handleWeekData({ daily }) {
     const dayWeek = date.split(" ")[0];
     const dayNum = date.split(" ")[2];
     arrDataString.push(`${dayNum} ${dayWeek}`);
+
     const temp = day.temp;
-    dataSetDailyTempMorning["arr"].push(temp["morn"]);
-    dataSetDailyTempDay["arr"].push(temp["day"]);
-    dataSetDailyTempEvening["arr"].push(temp["eve"]);
-    dataSetDailyTempNight["arr"].push(temp["night"]);
-    dataSetDailyTempMin["arr"].push(temp["min"]);
-    dataSetDailyTempMax["arr"].push(temp["max"]);
+    for (const value in dataSetDailyTemp) {
+      const key = dataSetDailyTemp[value]["key"];
+      dataSetDailyTemp[value]["arr"].push(temp[key]);
+    }
+
     const feelsLike = day["feels_like"];
-    dataSetDailyFeelsLikeTempDay["arr"].push(feelsLike["day"]);
-    dataSetDailyTempFeelsLikeEvening["arr"].push(feelsLike["eve"]);
-    dataSetDailyTempFeelsLikeMorning["arr"].push(feelsLike["morn"]);
-    dataSetDailyTempFeelsLikeNight["arr"].push(feelsLike["night"]);
+    for (const value in dataSetDailyTempFeelsLike) {
+      const key = dataSetDailyTempFeelsLike[value]["key"];
+      dataSetDailyTempFeelsLike[value]["arr"].push(feelsLike[key]);
+    }
   }
   return {
     arrDataString,
-    dataSetDailyTempMorning,
-    dataSetDailyTempDay,
-    dataSetDailyTempEvening,
-    dataSetDailyTempNight,
-    dataSetDailyTempMin,
-    dataSetDailyTempMax,
-    dataSetDailyFeelsLikeTempDay,
-    dataSetDailyTempFeelsLikeEvening,
-    dataSetDailyTempFeelsLikeMorning,
-    dataSetDailyTempFeelsLikeNight,
+    dataSetDailyTemp,
+    dataSetDailyTempFeelsLike,
   };
 }
 function randomHex() {
@@ -62,18 +64,22 @@ function randomHex() {
 
 export function handleDataSet(dataSet) {
   const arrObj = [];
+
   let count = 0;
   for (const key in dataSet) {
     if (key === "arrDataString") continue;
-    arrObj.push({});
-    arrObj[count].label = dataSet[key]["name"];
-    arrObj[count].data = dataSet[key]["arr"];
-    arrObj[count].fill = false;
-    const color = randomHex();
-    arrObj[count].backgroundColor = color;
-    arrObj[count].borderColor = color;
-    count++;
+    for (const dailyKey in dataSet[key]) {
+      arrObj.push({});
+      arrObj[count].label = dataSet[key][dailyKey]["name"];
+      arrObj[count].data = dataSet[key][dailyKey]["arr"];
+      arrObj[count].fill = false;
+      const color = randomHex();
+      arrObj[count].backgroundColor = color;
+      arrObj[count].borderColor = color;
+      count++;
+    }
   }
+
   return arrObj;
 }
 

@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import "./App.scss";
 import { Background } from "./components/Background";
+import { MainSquare } from "./components/MainSquare";
 
 function App() {
   const { handleSubmit, register } = useForm();
@@ -15,6 +16,7 @@ function App() {
   return (
     <div className="App">
       <Background />
+      <MainSquare />
       <form onSubmit={onSubmit}>
         <input
           type="text"
