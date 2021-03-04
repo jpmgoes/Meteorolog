@@ -1,0 +1,25 @@
+// .chart {
+//   position: relative;
+//   margin: auto;
+//   width: 50vw;
+//   height: 10vh;
+// }
+.background {
+  z-index: -10;
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  grid-template-columns: 1fr 3fr;
+  position: fixed;
+  background-color: aqua;
+  &__left {
+    width: 20vw;
+    height: 100%;
+    background-color: #c9cfeb;
+  }
+  &__right {
+    width: 80vw;
+    height: 100%;
+    background-color: #e4e7f3;
+  }
+}
