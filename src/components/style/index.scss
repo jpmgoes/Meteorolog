@@ -148,6 +148,7 @@
 .sidebar {
   display: flex;
   justify-content: center;
+  transition: all 0.3s;
   .burger {
     background-color: transparent;
     border: none;
@@ -160,6 +161,7 @@
     align-items: center;
     transition: all 0.3s;
     z-index: 200;
+    position: fixed;
     div {
       margin-top: 8px;
       width: 35px;
@@ -167,6 +169,30 @@
       background-color: #f3f6fb;
       transform-origin: 0;
     }
+    @media only screen and (min-width: 768px) {
+      display: none;
+    }
+  }
+  .mobile-menu,
+  .mobile-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s;
+    opacity: 0;
+    width: 5vw;
+    height: 80vh;
+    position: fixed;
+    left: 12vw;
+    border-radius: 20% 0 0 20%;
+    background-color: #6166f7;
+    @media only screen and (min-width: 768px) {
+      display: none;
+    }
+  }
+  .mobile-block {
+    opacity: 0;
+    z-index: 10;
     @media only screen and (min-width: 768px) {
       display: none;
     }

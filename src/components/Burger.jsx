@@ -1,5 +1,19 @@
 import { useState } from "react";
 
+function activeMenu(open) {
+  const mobileMenu = document.querySelector(".mobile-menu");
+  mobileMenu.style.transition = "all 0.3s";
+  setTimeout(() => {
+    if (!open) {
+      mobileMenu.style.width = `5vw`;
+      mobileMenu.style.opacity = `0`;
+    } else {
+      mobileMenu.style.width = `50vw`;
+      mobileMenu.style.opacity = `1`;
+    }
+  }, 0);
+}
+
 function burgerAnimation(open) {
   const b1 = document.querySelector(".burger__1");
   const b2 = document.querySelector(".burger__2");
@@ -22,15 +36,14 @@ function burgerAnimation(open) {
   }, 2);
 }
 
-export const Burger = () => {
-  const [open, setOpen] = useState(false);
-
+export const Burger = ({ open, setOpen }) => {
   return (
     <div
       className="burger"
       onClick={() => {
         setOpen(!open);
         burgerAnimation(open);
+        activeMenu(open);
       }}
     >
       <div className="burger__1"></div>
