@@ -4,6 +4,7 @@ import "./style/index.scss";
 import { getLocation } from "../api/getLocation";
 import { getWeather } from "../api/getWeather";
 import { Form } from "./Form";
+import { Exemplos } from "./Exemplos";
 
 export const MainSquare = ({ input, setInput }) => {
   // const [locationValues, setLocationValues] = useState();
@@ -34,7 +35,9 @@ export const MainSquare = ({ input, setInput }) => {
           <div className="main__square__right__search">
             <Form input={input} setInput={setInput} />
           </div>
-          <div className="main__square__right__weather-forecast"></div>
+          <div className="main__square__right__weather-forecast">
+            <Exemplos />
+          </div>
           <div className="main__square__right__cards"></div>
           <div className="main__square__right__weather-graph "></div>
         </div>
