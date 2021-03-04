@@ -1,4 +1,6 @@
 import { useForm } from "react-hook-form";
+import "./style/index.scss";
+import Icon from "supercons";
 
 export const Form = ({ input, setInput }) => {
   const { handleSubmit, register } = useForm();
@@ -7,16 +9,15 @@ export const Form = ({ input, setInput }) => {
     return data;
   });
   return (
-    <div>
-      <form onSubmit={onSubmit}>
-        <input
-          type="text"
-          placeholder="location"
-          name="location"
-          ref={register({ required: true })}
-        />
-        <input type="submit" value="submit" />
-      </form>
-    </div>
+    <form onSubmit={onSubmit} className="form">
+      <input type="submit" value="" className="form__search" />
+      <input
+        type="text"
+        placeholder="Search"
+        name="location"
+        ref={register({ required: true })}
+        className="form__input"
+      />
+    </form>
   );
 };
