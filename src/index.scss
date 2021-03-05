@@ -20,6 +20,9 @@ code {
     "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
   color: #1a3754;
+  a {
+    text-decoration: none;
+  }
 }
 input:-webkit-autofill,
 input:-webkit-autofill:hover,

@@ -22,7 +22,7 @@ export const NavBar = ({ queryPag }) => {
           className="navbar__settings"
           style={focusPage(queryPag, "navbar__dashboard")}
         >
-          <div style={{ color: "magenta" }}>
+          <div>
             <Icon glyph="grid" size={32} />
           </div>
           <p className="navbar__settings__p">Dashboard</p>

@@ -154,8 +154,11 @@
     }
   }
 }
+.sidebar-desk {
+  display: none;
+}
 @media only screen and (min-width: 920px) {
-  .sidebar {
+  .sidebar-desk {
     display: flex;
     justify-content: space-evenly;
     flex-flow: column nowrap;
