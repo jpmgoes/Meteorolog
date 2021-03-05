@@ -3,7 +3,6 @@ import amsterdam from "../../img/amsterdam.jpg";
 import london from "../../img/london.jpg";
 import kyoto from "../../img/kyoto.jpg";
 import chengdu from "../../img/chengdu.jpg";
-import { useState } from "react";
 
 function displayCityTime(offset) {
   const aDate = new Date();
