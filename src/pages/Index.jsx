@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+
 import { getLocation } from "../api/getLocation";
 import { getWeather } from "../api/getWeather";
 import { Layout } from "../layout/Layout";
-import { Exemplos } from "../components/Exemplos";
+import { ForecastCards } from "../components/ForecastCardFolder/ForecastCards";
 import { Form } from "../components/Form";
+import { CardsCarousel } from "../components/CardsCarousel";
 
 const Index = (props) => {
   const [input, setInput] = useState("");
@@ -29,9 +31,11 @@ const Index = (props) => {
         <Form input={input} setInput={setInput} />
       </div>
       <div className="main__square__right__weather-forecast">
-        <Exemplos />
+        <ForecastCards />
       </div>
-      <div className="main__square__right__cards"></div>
+      <div className="main__square__right__cards">
+        <CardsCarousel />
+      </div>
       <div className="main__square__right__weather-graph"></div>
     </Layout>
   );
