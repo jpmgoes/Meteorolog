@@ -6,11 +6,10 @@
     flex: 0 0 300px;
     margin-left: 10px;
     height: 100%;
-    // background-color: tomato;
     font-weight: 600;
     cursor: pointer;
     position: relative;
-    transition: all 0.5s;
+    transition: all 0.3s;
 
     &:hover {
       top: -10px;
@@ -21,18 +20,23 @@
       font-size: 0.7rem;
       display: grid;
       place-content: end;
-      border-radius: 1rem;
-      background-color: aqua;
-      width: 300px;
-      height: 225px;
+      border-radius: 1.4rem;
+      width: 250px;
+      height: 175px;
       margin-bottom: 15px;
       background-repeat: no-repeat;
       background-position: center;
+      transition: all 0.3s;
       box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
         rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
       &:hover {
         box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
           #6166f764 0px 4px 6px -2px;
+      }
+      &__icon {
+        position: absolute;
+        top: 204px;
+        right: 11px;
       }
       &__time {
         display: grid;

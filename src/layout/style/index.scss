@@ -242,3 +242,8 @@
     }
   }
 }
+
+.sidebar .mobile-menu,
+.sidebar .mobile-block {
+  z-index: 100;
+}
