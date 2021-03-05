@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 function activeMenu(open) {
   const mobileMenu = document.querySelector(".mobile-menu");
   mobileMenu.style.transition = "all 0.3s";

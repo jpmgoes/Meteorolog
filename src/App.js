@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./App.scss";
 import { Background } from "./components/Background";
 import { MainSquare } from "./components/MainSquare";
 

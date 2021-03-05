@@ -96,7 +96,7 @@
       background-color: white;
       border-radius: 0 1.5rem 1.5rem 0;
       display: grid;
-      grid-template-rows: 1fr 2fr 2fr 2fr;
+      grid-template-rows: 85px 3fr 2fr 2fr;
     }
   }
 }
@@ -143,6 +143,7 @@
 .ex-forecast {
   &__title {
     margin-left: 3%;
+    margin-bottom: 37px;
   }
 }
 .sidebar {
@@ -162,6 +163,7 @@
     transition: all 0.3s;
     z-index: 200;
     position: fixed;
+    cursor: pointer;
     div {
       margin-top: 8px;
       width: 35px;
@@ -169,7 +171,7 @@
       background-color: #f3f6fb;
       transform-origin: 0;
     }
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 920px) {
       display: none;
     }
   }
@@ -186,15 +188,75 @@
     left: 12vw;
     border-radius: 20% 0 0 20%;
     background-color: #6166f7;
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 920px) {
       display: none;
     }
   }
   .mobile-block {
     opacity: 0;
     z-index: 10;
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 920px) {
       display: none;
+    }
+  }
+}
+
+@media only screen and (min-width: 920px) {
+  .sidebar {
+    display: flex;
+    justify-content: space-evenly;
+    flex-flow: column nowrap;
+    &__logo {
+      padding: 35px 0 35px 0;
+      border-bottom: 1px solid #5a5ef5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fafbff;
+      font-size: large;
+      font-weight: bold;
+    }
+    .navbar {
+      height: 50px;
+      width: 100%;
+      display: flex;
+      flex-flow: column nowrap;
+      margin-top: 30px;
+      &__settings {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        border-left: 3px solid transparent;
+        outline: none;
+        &__p {
+          margin-left: 5px;
+          font-size: 1.2rem;
+          font-weight: 800;
+          color: #fbfbff;
+        }
+        &:focus {
+          border-left: 3px solid #fff;
+          background: rgb(112, 116, 248);
+          background: linear-gradient(
+            90deg,
+            rgba(112, 116, 248, 1) 0%,
+            rgba(97, 102, 247, 1) 100%
+          );
+        }
+        svg {
+          margin-left: -5px;
+        }
+        path {
+          color: #c0c1fc;
+          transition: all 0.3s;
+          &:focus {
+            color: #fff;
+          }
+        }
+      }
     }
   }
 }

@@ -23,6 +23,7 @@ export const MainSquare = ({ input, setInput }) => {
             console.log("requeste feita");
             if (weatherData["cod"] === undefined) {
               // setWeatherValues(weatherData);
+              console.log(weatherData);
             }
           });
         }
