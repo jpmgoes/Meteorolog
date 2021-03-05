@@ -1,6 +1,7 @@
 export function handleWeekData(params) {
+  console.log("entrou");
   if (!params) return;
-
+  console.log("aq");
   const { daily } = params;
 
   const arrDataString = [];
@@ -83,7 +84,7 @@ export function handleDataSet(dataSet) {
   return arrObj;
 }
 
-export function isDataserEqual(oldDataset, newDataset) {
+export function isDatasetEqual(oldDataset, newDataset) {
   for (const i in oldDataset) {
     const numI = +i;
     const oldObj = oldDataset[numI];

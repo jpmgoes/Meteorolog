@@ -139,9 +139,10 @@
     width: 5vw;
     height: 80vh;
     position: fixed;
-    left: 12vw;
-    border-radius: 20% 0 0 20%;
+    left: 10vw;
+    border-radius: 1.5rem 0px 0px 1.5rem;
     background-color: #6166f7;
+    // background-color: tomato;
     @media only screen and (min-width: 920px) {
       display: none;
     }
@@ -205,6 +206,38 @@
           }
         }
       }
+    }
+  }
+}
+.mobile-menu {
+  display: flex;
+  flex-flow: column nowrap;
+  &__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: bold;
+    width: 100%;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #000;
+  }
+  &__wrap {
+    width: 100%;
+    height: 70%;
+  }
+  .navbar__settings {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 15px;
+    p {
+      color: #ffffff;
+      font-weight: bold;
+    }
+    path {
+      color: #c0c1fc;
     }
   }
 }

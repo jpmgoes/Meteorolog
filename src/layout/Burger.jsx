@@ -6,7 +6,7 @@ function activeMenu(open) {
       mobileMenu.style.width = `5vw`;
       mobileMenu.style.opacity = `0`;
     } else {
-      mobileMenu.style.width = `50vw`;
+      mobileMenu.style.width = `40vw`;
       mobileMenu.style.opacity = `1`;
     }
   }, 0);
