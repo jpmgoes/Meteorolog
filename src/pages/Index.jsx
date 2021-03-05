@@ -6,7 +6,6 @@ import { Layout } from "../layout/Layout";
 import { ForecastCards } from "../components/ForecastCardFolder/ForecastCards";
 import { Form } from "../components/Form";
 import { CardsCarousel } from "../components/CardsCarousel";
-import "./style/index.scss";
 
 const Index = () => {
   const [input, setInput] = useState("");
