@@ -178,20 +178,21 @@
       &__settings {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
         width: 100%;
         cursor: pointer;
         border-left: 3px solid transparent;
         outline: none;
         height: 50px;
+        margin-bottom: 30px;
         &__p {
-          margin-left: 5px;
+          margin-left: 8%;
           font-size: 1.2rem;
-          font-weight: 800;
+          font-weight: bold;
           color: #fbfbff;
         }
         svg {
-          margin-left: -5px;
+          margin-left: 15%;
         }
         path {
           color: #c0c1fc;

@@ -29,7 +29,7 @@ const Index = (props) => {
       });
   }, [input]);
   return (
-    <Layout>
+    <Layout queryPag={"navbar__dashboard"}>
       <div className="main__square__right__search">
         <Form input={input} setInput={setInput} />
       </div>
