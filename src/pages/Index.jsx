@@ -12,6 +12,7 @@ const Index = () => {
   useEffect(() => {
     if (input)
       getLocation(input).then((data) => {
+        console.log(data);
         const arrData = data["data"];
         if (arrData.length > 0) {
           const firstResult = arrData[0];
@@ -31,7 +32,7 @@ const Index = () => {
         <Form input={input} setInput={setInput} />
       </div>
       <div className="main__square__right__weather-forecast">
-        <ForecastCards />
+        <ForecastCards setInput={setInput} />
       </div>
       <div className="main__square__right__cards">
         <CardsCarousel />

@@ -14,7 +14,7 @@
   background-color: rgba(213, 213, 213, 0);
   overflow: scroll;
   &__forecast {
-    height: 300px;
+    height: 250px;
   }
   .wrap-flex {
     @extend %flexset;
@@ -40,6 +40,11 @@
     transition: all 0.5s;
     z-index: -2;
     opacity: 0;
+    outline: none;
+    border: none;
+    background-repeat: no-repeat;
+    background-color: #6166f7;
+    border-radius: 0.3rem;
   }
   .right {
     right: 0;

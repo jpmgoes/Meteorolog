@@ -19,12 +19,13 @@ const imgArr = [montreal, amsterdam, london, kyoto, chengdu];
 const arrTime = [-5, 1, 0, 9, 8];
 const arrNameTime = ["Montreal", "Amsterdam", "London", "Kyoto", "Chengdu"];
 
-export const ForecastCardsContent = () => {
+export const ForecastCardsContent = ({ setInput }) => {
   const items = new Array(arrTime.length).fill(null).map((_, index) => {
     const time = displayCityTime(arrTime[index]);
     const hour = +displayCityTime(arrTime[index]).split(":")[0];
+    const countryName = arrNameTime[index];
     return (
-      <div className="forecast-cards">
+      <div className="forecast-cards" onClick={() => setInput(countryName)}>
         <div className="forecast-cards__item">
           <div
             className="forecast-cards__item__img"
@@ -51,7 +52,7 @@ export const ForecastCardsContent = () => {
               <div className="forecast-cards__item__img__time__now">{time}</div>
             </div>
           </div>
-          {arrNameTime[index]}
+          {countryName}
         </div>
       </div>
     );
