@@ -4,26 +4,20 @@ import { getWeather } from "../api/getWeather";
 import { Layout } from "../layout/Layout";
 import { Exemplos } from "../components/Exemplos";
 import { Form } from "../components/Form";
-import { handleWeekData } from "../api/dataManipulation";
 
 const Index = (props) => {
   const [input, setInput] = useState("");
-  // const [locationValues, setLocationValues] = useState();
-  const [weatherValue, setWeatherValues] = useState();
   useEffect(() => {
     if (input)
       getLocation(input).then((data) => {
         const arrData = data["data"];
         if (arrData.length > 0) {
           const firstResult = arrData[0];
-          // setLocationValues(firstResult);
           const lat = firstResult.latitude;
           const lon = firstResult.longitude;
           getWeather(lat, lon, "metric").then((weatherData) => {
             console.log("requeste feita");
-            console.log("weather data ", handleWeekData(weatherData));
             if (weatherData["cod"] === undefined) {
-              setWeatherValues(weatherData);
             }
           });
         }

@@ -8,7 +8,7 @@ export const SideBarMobile = ({ queryPag }) => {
   return (
     <nav className="sidebar">
       <Burger open={open} setOpen={setOpen} />
-      <MobileMenu open={open} />
+      <MobileMenu open={open} queryPag={queryPag} />
       <div className="sidebar__forcast-card"></div>
     </nav>
   );

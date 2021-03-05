@@ -1,3 +1,3 @@
-export function Card({ input }) {
+export function Card() {
   return <div></div>;
 }
