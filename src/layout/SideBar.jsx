@@ -3,7 +3,7 @@ import { Burger } from "./Burger";
 import { MobileMenu } from "./MobileMenu";
 import { NavBar } from "./NavBar";
 
-export const SideBar = () => {
+export const SideBar = ({ queryPag }) => {
   const [open, setOpen] = useState(true);
 
   return (
@@ -12,7 +12,7 @@ export const SideBar = () => {
       <MobileMenu open={open} />
       <div className="sidebar__logo">LOGO</div>
       <div className="sidebar__menu">
-        <NavBar />
+        <NavBar queryPag={queryPag} />
       </div>
       <div className="sidebar__forcast-card"></div>
     </nav>

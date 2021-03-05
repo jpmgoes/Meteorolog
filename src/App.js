@@ -1,15 +1,17 @@
-import { useState } from "react";
-import { IndexContent } from "./components/IndexContent";
-import { Layout } from "./layout/Layout";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+// pages
+import Index from "./pages/Index";
+import Settings from "./pages/Settings";
 
 function App() {
-  const [input, setInput] = useState("");
   return (
-    <div className="App">
-      <Layout>
-        <IndexContent input={input} setInput={setInput} />
-      </Layout>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path={"/"} component={Index} />
+        <Route exact path={"/settings"} component={Settings} />
+      </Switch>
+    </Router>
   );
 }
 
