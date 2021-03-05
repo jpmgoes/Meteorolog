@@ -1,13 +1,14 @@
 import { useState } from "react";
-import { Background } from "./components/Background";
-import { MainSquare } from "./components/MainSquare";
+import { IndexContent } from "./components/IndexContent";
+import { Layout } from "./layout/Layout";
 
 function App() {
   const [input, setInput] = useState("");
   return (
     <div className="App">
-      <Background />
-      <MainSquare input={input} setInput={setInput} />
+      <Layout>
+        <IndexContent input={input} setInput={setInput} />
+      </Layout>
     </div>
   );
 }
