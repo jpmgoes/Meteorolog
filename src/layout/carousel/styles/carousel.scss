@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+%flexset {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.carousel {
+  @extend %flexset;
+  background-color: rgba(213, 213, 213, 0);
+  overflow: scroll;
+  &__forecast {
+    height: 300px;
+  }
+  .wrap-flex {
+    @extend %flexset;
+    justify-content: flex-start;
+    background-color: antiquewhite;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    &__forecast {
+      width: 65vw;
+      height: 100%;
+    }
+    .item {
+      @extend %flexset;
+      background-color: azure;
+      height: 100%;
+      flex: 0 0 200px;
+      padding: 10px;
+      margin-left: 10px;
+    }
+  }
+  button {
+    position: sticky;
+    transition: all 0.5s;
+    z-index: -2;
+    opacity: 0;
+  }
+  .right {
+    right: 0;
+  }
+  .left {
+    left: 0;
+  }
+}
