@@ -4,7 +4,7 @@ import { Layout } from "../layout/Layout";
 const Settings = () => {
   return (
     <div>
-      <Layout queryPag={"navbar__settings"}>pagina de settings</Layout>
+      <Layout queryPag={"navbar__settings"}></Layout>
     </div>
   );
 };

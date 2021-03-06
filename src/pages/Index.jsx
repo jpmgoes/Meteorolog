@@ -27,18 +27,20 @@ const Index = () => {
       });
   }, [input]);
   return (
-    <Layout queryPag={"navbar__dashboard"}>
-      <div className="main__square__right__search">
-        <Form input={input} setInput={setInput} />
-      </div>
-      <div className="main__square__right__weather-forecast">
-        <ForecastCards setInput={setInput} />
-      </div>
-      <div className="main__square__right__cards">
-        <CardsCarousel />
-      </div>
-      <div className="main__square__right__weather-graph"></div>
-    </Layout>
+    <>
+      <Layout queryPag={"navbar__dashboard"}>
+        <div className="main__square__right__search">
+          <Form input={input} setInput={setInput} />
+        </div>
+        <div className="main__square__right__weather-forecast">
+          <ForecastCards setInput={setInput} />
+        </div>
+        <div className="main__square__right__cards">
+          <CardsCarousel />
+        </div>
+        <div className="main__square__right__weather-graph"></div>
+      </Layout>
+    </>
   );
 };
 export default Index;
