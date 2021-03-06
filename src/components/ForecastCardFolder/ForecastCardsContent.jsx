@@ -18,14 +18,27 @@ function displayCityTime(offset) {
 const imgArr = [montreal, amsterdam, london, kyoto, chengdu];
 const arrTime = [-5, 1, 0, 9, 8];
 const arrNameTime = ["Montreal", "Amsterdam", "London", "Kyoto", "Chengdu"];
+const arrLocation = [
+  [45.4972159, -73.6103642],
+  [51.4371483, 5.9799001],
+  [51.5073219, 0.1276474],
+  [35.021041, 135.7556075],
+  [30.6598628, 104.0633717],
+];
 
-export const ForecastCardsContent = ({ setInput }) => {
+export const ForecastCardsContent = ({ setName, setLocation, location }) => {
   const items = new Array(arrTime.length).fill(null).map((_, index) => {
     const time = displayCityTime(arrTime[index]);
     const hour = +displayCityTime(arrTime[index]).split(":")[0];
     const countryName = arrNameTime[index];
     return (
-      <div className="forecast-cards" onClick={() => setInput(countryName)}>
+      <div
+        className="forecast-cards"
+        onClick={() => {
+          setName(countryName);
+          setLocation(arrLocation[index]);
+        }}
+      >
         <div className="forecast-cards__item">
           <div
             className="forecast-cards__item__img"

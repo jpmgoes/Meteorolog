@@ -1,7 +1,5 @@
 export function handleWeekData(params) {
-  console.log("entrou");
   if (!params) return;
-  console.log("aq");
   const { daily } = params;
 
   const arrDataString = [];
