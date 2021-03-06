@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { getLocation } from "../api/getLocation";
+import { getLocation, formatLocation } from "../api/getLocation";
 import { getWeather } from "../api/getWeather";
 import { Layout } from "../layout/Layout";
 import { ForecastCards } from "../components/ForecastCardFolder/ForecastCards";
@@ -12,14 +12,13 @@ const Index = () => {
   useEffect(() => {
     if (input)
       getLocation(input).then((data) => {
-        console.log(data);
-        const arrData = data["data"];
-        if (arrData.length > 0) {
-          const firstResult = arrData[0];
-          const lat = firstResult.latitude;
-          const lon = firstResult.longitude;
+        if (data) {
+          const latitude = data["results"][0]["annotations"]["DMS"]["lat"];
+          const longitude = data["results"][0]["annotations"]["DMS"]["lng"];
+          const lat = formatLocation(latitude, "S");
+          const lon = formatLocation(longitude, "W");
           getWeather(lat, lon, "metric").then((weatherData) => {
-            console.log("requeste feita");
+            console.log("requeste feita", weatherData);
             if (weatherData["cod"] === undefined) {
             }
           });
