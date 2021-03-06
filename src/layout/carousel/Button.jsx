@@ -19,29 +19,42 @@ export function Button({ direction }) {
   const style = {
     width: "50px",
     height: "50px",
-    left: "10px",
     backgroundPosition: "center",
+    cursor: "pointer",
   };
   if (direction === "left") {
     return (
-      <button
-        className="left wraperBtn"
-        onClick={() => toMove("left")}
-        onMouseMove={verify}
-        style={{ backgroundImage: `url(${arrowLeft})`, left: "30px", ...style }}
-      >
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      </button>
+      <>
+        <button
+          className="left wraperBtn"
+          onClick={() => toMove("left")}
+          onMouseMove={verify}
+          style={{
+            backgroundImage: `url(${arrowLeft})`,
+            left: "6vw",
+
+            ...style,
+          }}
+        >
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </button>
+      </>
     );
   }
   return (
-    <button
-      className="right wraperBtn"
-      onClick={() => toMove("right")}
-      onMouseMove={verify}
-      style={{ backgroundImage: `url(${arrowRight})`, right: "30px", ...style }}
-    >
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    </button>
+    <>
+      <button
+        className="right wraperBtn"
+        onClick={() => toMove("right")}
+        onMouseMove={verify}
+        style={{
+          backgroundImage: `url(${arrowRight})`,
+          right: "6vw",
+          ...style,
+        }}
+      >
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </button>
+    </>
   );
 }

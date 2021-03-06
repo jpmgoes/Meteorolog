@@ -2,6 +2,8 @@
 import React from "react";
 import Icon from "supercons";
 import { Link } from "react-router-dom";
+import thermometer from "../img/thermometer.svg";
+import sun from "../img/sun.svg";
 
 export const NavBar = ({ queryPag }) => {
   function focusPage(queryPag, query) {
@@ -15,31 +17,41 @@ export const NavBar = ({ queryPag }) => {
     return {};
   }
   return (
-    <div className="navbar">
-      <Link to="/">
-        <div
-          href="./Form"
-          className="navbar__settings"
-          style={focusPage(queryPag, "navbar__dashboard")}
-        >
-          <div>
-            <Icon glyph="grid" size={32} />
-          </div>
-          <p className="navbar__settings__p">Dashboard</p>
+    <>
+      <div className="logo">
+        <div className="logo__icon">
+          <img src={sun} alt="" className="logo__icon__sun" />
+          <img src={thermometer} alt="" className="logo__icon__thermo" />
         </div>
-      </Link>
-      <Link to="/settings">
-        <div
-          href="./Form"
-          className="navbar__settings"
-          style={focusPage(queryPag, "navbar__settings")}
-        >
-          <div style={{ color: "magenta" }}>
-            <Icon glyph="settings" size={32} />
+        <div className="logo__txt">METEOROLOG</div>
+      </div>
+
+      <div className="navbar">
+        <Link to="/">
+          <div
+            href="./Form"
+            className="navbar__settings"
+            style={focusPage(queryPag, "navbar__dashboard")}
+          >
+            <div>
+              <Icon glyph="grid" size={32} />
+            </div>
+            <p className="navbar__settings__p">Dashboard</p>
           </div>
-          <p className="navbar__settings__p">Settings</p>
-        </div>
-      </Link>
-    </div>
+        </Link>
+        <Link to="/settings">
+          <div
+            href="./Form"
+            className="navbar__settings"
+            style={focusPage(queryPag, "navbar__settings")}
+          >
+            <div style={{ color: "magenta" }}>
+              <Icon glyph="settings" size={32} />
+            </div>
+            <p className="navbar__settings__p">Settings</p>
+          </div>
+        </Link>
+      </div>
+    </>
   );
 };

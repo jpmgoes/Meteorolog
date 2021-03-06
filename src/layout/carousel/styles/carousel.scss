@@ -19,7 +19,7 @@
   .wrap-flex {
     @extend %flexset;
     justify-content: flex-start;
-    background-color: antiquewhite;
+    background-color: transparent;
     overflow-x: scroll;
     overflow-y: hidden;
     &__forecast {
@@ -45,11 +45,39 @@
     background-repeat: no-repeat;
     background-color: #6166f7;
     border-radius: 0.3rem;
+    box-shadow: rgba(0, 0, 0, 0.235) 0px 10px 15px -3px,
+      rgba(0, 0, 0, 0.187) 0px 4px 6px -2px;
+    margin-left: -25px;
   }
   .right {
     right: 0;
   }
   .left {
     left: 0;
+    margin-left: -40px;
   }
+}
+.baseleft {
+  position: sticky;
+  height: 100%;
+  left: 0px;
+  background-color: #ffffff96;
+  top: 0;
+  z-index: -4;
+  opacity: 0;
+  margin-left: -100px;
+  width: 60px;
+  transition: all 0.5s;
+}
+.baseright {
+  transition: all 0.5s;
+  position: sticky;
+  height: 100%;
+  background-color: #ffffff96;
+
+  right: 0px;
+  top: 0;
+  width: 80px;
+  z-index: -4;
+  opacity: 0;
 }

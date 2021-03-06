@@ -33,17 +33,17 @@ export const ForecastCardsContent = ({ setInput }) => {
           >
             <div className="forecast-cards__item__img__icon">
               {6 <= hour && hour <= 18 ? (
-                <div
+                <img
+                  src={sun}
+                  alt=""
                   style={{
-                    backgroundImage: `url(${sun})`,
                     width: "10px",
                     height: "10px",
-                    backgroundPosition: "center",
                     position: "absolute;",
                     bottom: "91px;",
                     right: "8px;",
                   }}
-                ></div>
+                />
               ) : (
                 <Icon glyph="moon" size={10} />
               )}

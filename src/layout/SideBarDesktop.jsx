@@ -4,7 +4,6 @@ import { NavBar } from "./NavBar";
 const SideBarDesktop = ({ queryPag }) => {
   return (
     <nav className="sidebar-desk">
-      <div className="sidebar-desk__logo">LOGO</div>
       <div className="sidebar-desk__menu">
         <NavBar queryPag={queryPag} />
       </div>

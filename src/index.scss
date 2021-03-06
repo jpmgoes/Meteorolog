@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Libre+Franklin&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;500;600;800&display=swap");
 body {
   margin: 0;
   font-family: "Roboto", sans-serif, -apple-system, BlinkMacSystemFont,
@@ -24,7 +24,13 @@ code {
     text-decoration: none;
   }
   h3 {
-    margin: 3% 0 3% 3%;
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
+  h3,
+  h2,
+  h1 {
+    margin: 3% 0 2% 3%;
   }
 }
 input:-webkit-autofill,
