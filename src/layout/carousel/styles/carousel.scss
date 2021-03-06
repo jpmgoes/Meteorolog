@@ -22,10 +22,12 @@
     background-color: transparent;
     overflow-x: scroll;
     overflow-y: hidden;
-    &__forecast {
-      width: 65vw;
+    &__forecast,
+    &__cards-carousel {
+      width: 64.9vw;
       height: 100%;
     }
+
     .item {
       @extend %flexset;
       background-color: azure;

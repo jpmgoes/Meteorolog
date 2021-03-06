@@ -18,10 +18,10 @@ function visible(query, bool) {
   const arrow = document.querySelector("." + query);
   if (bool) {
     arrow.style.opacity = 0;
-    arrow.style.zIndex = -2;
+    arrow.style.zIndex = -4;
     return;
   }
-  arrow.style.zIndex = 2;
+  arrow.style.zIndex = 4;
   arrow.style.opacity = 1;
 }
 function visibleMove(opacity, zIndex) {
