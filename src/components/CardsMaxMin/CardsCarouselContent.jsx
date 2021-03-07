@@ -1,7 +1,8 @@
 import "./style/index.scss";
 
-export const CardsCarouselContent = () => {
+export const CardsCarouselContent = ({ data }) => {
   const arr = new Array(8).fill(null);
+  console.log(data);
   return (
     <>
       {arr.map((_, index) => {

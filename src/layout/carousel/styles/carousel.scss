@@ -57,6 +57,11 @@
       margin-left: -34px;
     }
   }
+  &__cards-carousel {
+    &__style {
+      height: 135px !important;
+    }
+  }
 }
 .baseleft {
   position: sticky;

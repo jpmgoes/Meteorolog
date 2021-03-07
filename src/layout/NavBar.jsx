@@ -2,8 +2,8 @@
 import React from "react";
 import Icon from "supercons";
 import { Link } from "react-router-dom";
-import thermometer from "../img/thermometer.svg";
-import sun from "../img/sun.svg";
+import thermometer from "../img/icons/thermometer.svg";
+import sun from "../img/icons/weather/01d.svg";
 
 export const NavBar = ({ queryPag }) => {
   function focusPage(queryPag, query) {

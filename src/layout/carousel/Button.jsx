@@ -1,6 +1,6 @@
 import { verify } from "./WrapFlex";
-import arrowLeft from "../../img/arrowLeft.svg";
-import arrowRight from "../../img/arrowRight.svg";
+import arrowLeft from "../../img/icons/arrowLeft.svg";
+import arrowRight from "../../img/icons/arrowRight.svg";
 
 function toMove(direction, contentName) {
   const arrow = document.querySelector(`.wrap-flex__${contentName}`);

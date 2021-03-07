@@ -6,11 +6,13 @@ import { Layout } from "../layout/Layout";
 import { ForecastCards } from "../components/ForecastCardFolder/ForecastCards";
 import { Form } from "../components/Form";
 import { CardsCarousel } from "../components/CardsMaxMin/CardsCarousel";
+import { handleDataToCardsCarousel } from "../api/dataManipulation";
 
 const Index = () => {
   const [input, setInput] = useState("");
   const [location, setLocation] = useState([]);
-  const [name, setName] = useState("");
+  const [name, setName] = useState("London");
+  const [dataToCardsCarousel, setDataToCardsCarousel] = useState("");
 
   useEffect(() => {
     if (input)
@@ -26,6 +28,7 @@ const Index = () => {
           getWeather(lat, lon, "metric").then((weatherData) => {
             console.log("requeste feita", weatherData);
             if (weatherData["cod"] === undefined) {
+              setDataToCardsCarousel(handleDataToCardsCarousel(weatherData));
             }
           });
         }
@@ -36,6 +39,7 @@ const Index = () => {
       getWeather(location[0], location[1], "metric").then((weatherData) => {
         console.log("requeste feita 2", weatherData);
         if (weatherData["cod"] === undefined) {
+          setDataToCardsCarousel(handleDataToCardsCarousel(weatherData));
         }
       });
   }, [location]);
@@ -52,7 +56,7 @@ const Index = () => {
         />
       </div>
       <div className="main__square__right__cards">
-        <CardsCarousel name={name} />
+        <CardsCarousel name={name} data={dataToCardsCarousel} />
       </div>
       <div className="main__square__right__weather-graph"></div>
     </Layout>

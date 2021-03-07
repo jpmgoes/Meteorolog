@@ -1,10 +1,10 @@
-import montreal from "../../img/montreal.jpg";
-import amsterdam from "../../img/amsterdam.jpg";
-import london from "../../img/london.jpg";
-import kyoto from "../../img/kyoto.jpg";
-import chengdu from "../../img/chengdu.jpg";
-import sun from "../../img/sun.svg";
-import moon from "../../img/moon.svg";
+import montreal from "../../img/jpg/montreal.jpg";
+import amsterdam from "../../img/jpg/amsterdam.jpg";
+import london from "../../img/jpg/london.jpg";
+import kyoto from "../../img/jpg/kyoto.jpg";
+import chengdu from "../../img/jpg/chengdu.jpg";
+import sun from "../../img/icons/weather/01d.svg";
+import moon from "../../img/icons/weather/01n.svg";
 
 function displayCityTime(offset) {
   const aDate = new Date();

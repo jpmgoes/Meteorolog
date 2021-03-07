@@ -104,3 +104,38 @@ export function isDatasetEqual(oldDataset, newDataset) {
 
   return false;
 }
+
+// toCardsCarousel
+function getMonthAndDate(dt) {
+  const fullDate = new Date(dt * 1000).toString();
+  const fullDateSplited = fullDate.split(" ");
+  const month = fullDateSplited[0];
+  const day = fullDateSplited[2];
+  return `${day} ${month}`;
+}
+function formatMinAndMax(min, max) {
+  let intMax = Math.round(max);
+  let intMin = Math.round(min);
+  if (intMax > 0) intMax = "+" + intMax;
+  if (intMin > 0) intMin = "+" + intMin;
+  return `${intMin}/${intMax}`;
+}
+export function handleDataToCardsCarousel({ daily }) {
+  const data = {
+    day: [],
+    minMax: [],
+    icon: [],
+  };
+  for (const day of daily) {
+    data.day.push(getMonthAndDate(day["dt"]));
+
+    const max = day["temp"]["max"];
+    const min = day["temp"]["min"];
+    data.minMax.push(formatMinAndMax(min, max));
+
+    let icon = day["weather"][0]["icon"];
+    if (icon.includes("n")) icon.replace("n", "d");
+    data.icon.push(icon);
+  }
+  return data;
+}
