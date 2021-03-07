@@ -13,19 +13,16 @@
   @extend %flexset;
   background-color: rgba(213, 213, 213, 0);
   overflow: scroll;
-  &__forecast {
-    height: 250px;
-  }
+  height: 250px;
   .wrap-flex {
-    @extend %flexset;
-    justify-content: flex-start;
-    background-color: transparent;
-    overflow-x: scroll;
-    overflow-y: hidden;
     &__forecast,
     &__cards-carousel {
-      width: 64.9vw;
+      @extend %flexset;
+      justify-content: flex-start;
+      background-color: transparent;
+      overflow-y: hidden;
       height: 100%;
+      width: 64.9vw;
     }
 
     .item {

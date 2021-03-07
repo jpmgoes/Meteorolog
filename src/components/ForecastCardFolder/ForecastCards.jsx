@@ -7,7 +7,7 @@ export const ForecastCards = ({ setName, setLocation, location }) => {
   return (
     <div>
       <h3> Weather Forecast </h3>
-      <Carousel classname="__forecast">
+      <Carousel contentName="forecast" styleName="carousel">
         <ForecastCardsContent
           setName={setName}
           setLocation={setLocation}

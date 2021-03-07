@@ -1,11 +1,11 @@
 import { Button } from "./Button";
 
-export function Items({ children }) {
+export function Items({ children, contentName }) {
   return (
     <>
-      <Button direction={"left"} />
+      <Button direction={"left"} contentName={contentName} />
       {children}
-      <Button direction={"right"} />
+      <Button direction={"right"} contentName={contentName} />
     </>
   );
 }

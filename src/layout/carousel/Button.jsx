@@ -2,8 +2,8 @@ import { verify } from "./WrapFlex";
 import arrowLeft from "../../img/arrowLeft.svg";
 import arrowRight from "../../img/arrowRight.svg";
 
-function toMove(direction) {
-  const arrow = document.querySelector(".wrap-flex");
+function toMove(direction, contentName) {
+  const arrow = document.querySelector(`.wrap-flex__${contentName}`);
   const distance = arrow.clientWidth;
   let value = 1;
   if (direction === "left") value = -1;
@@ -15,7 +15,7 @@ function toMove(direction) {
   });
 }
 
-export function Button({ direction }) {
+export function Button({ direction, contentName }) {
   const style = {
     width: "50px",
     height: "50px",
@@ -26,9 +26,9 @@ export function Button({ direction }) {
     return (
       <>
         <button
-          className="left wraperBtn"
-          onClick={() => toMove("left")}
-          onMouseMove={verify}
+          className={`left__${contentName} wraperBtn__${contentName}`}
+          onClick={() => toMove("left", contentName)}
+          onMouseMove={() => verify(contentName)}
           style={{
             backgroundImage: `url(${arrowLeft})`,
             left: "6vw",
@@ -44,9 +44,9 @@ export function Button({ direction }) {
   return (
     <>
       <button
-        className="right wraperBtn"
-        onClick={() => toMove("right")}
-        onMouseMove={verify}
+        className={`right__${contentName} wraperBtn__${contentName}`}
+        onClick={() => toMove("right", contentName)}
+        onMouseMove={() => verify(contentName)}
         style={{
           backgroundImage: `url(${arrowRight})`,
           right: "6vw",

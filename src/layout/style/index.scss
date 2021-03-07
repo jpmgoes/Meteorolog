@@ -234,6 +234,9 @@
     color: #fff;
     font-weight: bold;
     font-size: 1rem;
+    @media only screen and (max-width: 300px) {
+      font-size: 0.6rem;
+    }
   }
 }
 
@@ -253,6 +256,9 @@
     p {
       color: #ffffff;
       font-weight: bold;
+      @media only screen and (max-width: 300px) {
+        font-size: 0.8rem;
+      }
     }
     path {
       color: #c0c1fc;
@@ -263,6 +269,4 @@
 .sidebar .mobile-menu,
 .sidebar .mobile-block {
   z-index: 100;
-}
-@media only screen and (max-width: 920px) {
 }

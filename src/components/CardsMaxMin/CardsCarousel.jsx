@@ -6,7 +6,7 @@ export const CardsCarousel = ({ name }) => {
   return (
     <div>
       <h3>{name}</h3>
-      <Carousel classname={"__cards-carousel"}>
+      <Carousel contentName="cards-carousel" styleName="carousel">
         <CardsCarouselContent />
       </Carousel>
     </div>
