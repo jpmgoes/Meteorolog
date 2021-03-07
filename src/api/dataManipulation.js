@@ -133,9 +133,7 @@ export function handleDataToCardsCarousel({ daily }) {
     const min = day["temp"]["min"];
     data.minMax.push(formatMinAndMax(min, max));
 
-    let icon = day["weather"][0]["icon"];
-    if (icon.includes("n")) icon.replace("n", "d");
-    data.icon.push(icon);
+    data.icon.push(day["weather"][0]["icon"]);
   }
   return data;
 }
