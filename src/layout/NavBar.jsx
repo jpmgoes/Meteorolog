@@ -2,8 +2,7 @@
 import React from "react";
 import Icon from "supercons";
 import { Link } from "react-router-dom";
-import thermometer from "../img/icons/thermometer.svg";
-import sun from "../img/icons/weather/01d.svg";
+import logo from "../img/icons/logo.svg";
 
 export const NavBar = ({ queryPag }) => {
   function focusPage(queryPag, query) {
@@ -20,8 +19,7 @@ export const NavBar = ({ queryPag }) => {
     <>
       <div className="logo">
         <div className="logo__icon">
-          <img src={sun} alt="" className="logo__icon__sun" />
-          <img src={thermometer} alt="" className="logo__icon__thermo" />
+          <img src={logo} alt="" className="logo__icon__sun" />
         </div>
         <div className="logo__txt">METEOROLOG</div>
       </div>

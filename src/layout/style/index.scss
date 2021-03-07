@@ -221,13 +221,8 @@
     display: flex;
     flex-flow: row nowrap;
     &__sun {
-      width: 16px;
-      background-repeat: no-repeat;
-    }
-    &__thermo {
-      width: 16px;
-      background-repeat: no-repeat;
-      margin-left: -10px;
+      width: 19px;
+      margin-right: 5px;
     }
   }
   &__txt {
