@@ -3,8 +3,8 @@ import amsterdam from "../../img/jpg/amsterdam.jpg";
 import london from "../../img/jpg/london.jpg";
 import kyoto from "../../img/jpg/kyoto.jpg";
 import chengdu from "../../img/jpg/chengdu.jpg";
-import sun from "../../img/icons/weather/01d.svg";
-import moon from "../../img/icons/weather/01n.svg";
+const sun = "./img/icons/weather/01d.svg";
+const moon = "./img/icons/weather/01n.svg";
 
 function displayCityTime(offset) {
   const aDate = new Date();

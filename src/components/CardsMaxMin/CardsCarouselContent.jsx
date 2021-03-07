@@ -8,7 +8,7 @@ export const CardsCarouselContent = ({ data }) => {
       {arr.map((_, index) => {
         let minMax = "-2/+5";
         let day = "Mon 12";
-        let icon = "01d";
+        let icon = "_01d";
         if (data) {
           minMax = data["minMax"][index];
           day = data["day"][index];

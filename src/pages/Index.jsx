@@ -10,7 +10,7 @@ import { handleDataToCardsCarousel } from "../api/dataManipulation";
 
 const Index = () => {
   const [input, setInput] = useState("");
-  const [location, setLocation] = useState([]);
+  const [location, setLocation] = useState([51.5073219, 0.1276474]);
   const [name, setName] = useState("London");
   const [dataToCardsCarousel, setDataToCardsCarousel] = useState("");
 
