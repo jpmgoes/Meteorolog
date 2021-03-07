@@ -24,7 +24,9 @@
       height: 100%;
       width: 64.9vw;
     }
-
+    &__cards-carousel {
+      width: 64.8vw;
+    }
     .item {
       @extend %flexset;
       background-color: azure;
