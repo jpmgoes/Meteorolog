@@ -7,13 +7,14 @@ import { ForecastCards } from "../components/ForecastCardFolder/ForecastCards";
 import { Form } from "../components/Form";
 import { CardsCarousel } from "../components/CardsMaxMin/CardsCarousel";
 import { handleDataToCardsCarousel } from "../api/dataManipulation";
+import { MyLocation } from "../components/MyLocation";
 
 const Index = () => {
   const [input, setInput] = useState("");
-  const [location, setLocation] = useState([51.5073219, 0.1276474]);
+  // const [location, setLocation] = useState([51.5073219, 0.1276474]);
+  const [location, setLocation] = useState([]);
   const [name, setName] = useState("London");
   const [dataToCardsCarousel, setDataToCardsCarousel] = useState("");
-
   useEffect(() => {
     if (input)
       getLocation(input).then((data) => {
@@ -46,7 +47,13 @@ const Index = () => {
   return (
     <Layout queryPag={"navbar__dashboard"}>
       <div className="main__square__right__search">
-        <Form input={input} setInput={setInput} />
+        <Form
+          input={input}
+          setInput={setInput}
+          setLocation={setLocation}
+          setName={setName}
+        />
+        <MyLocation setName={setName} setLocation={setLocation} />
       </div>
       <div className="main__square__right__weather-forecast">
         <ForecastCards

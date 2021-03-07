@@ -5,6 +5,12 @@ export async function getLocation(country) {
   );
   return response.json();
 }
+export async function getNameByLatAndLon(lat, lon) {
+  const response = await fetch(
+    `https://api.opencagedata.com/geocode/v1/json?q=${lat}+${lon}&key=91d86012a6104389a11064827998472a`
+  );
+  return response.json();
+}
 
 export function formatLocation(location, char) {
   const regex = /\'\'./g;
