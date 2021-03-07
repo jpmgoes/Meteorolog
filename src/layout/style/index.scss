@@ -218,12 +218,8 @@
   padding: 25px;
 
   &__icon {
-    display: flex;
-    flex-flow: row nowrap;
-    &__sun {
-      width: 19px;
-      margin-right: 5px;
-    }
+    width: 19px;
+    margin-right: 5px;
   }
   &__txt {
     color: #fff;

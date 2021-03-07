@@ -18,9 +18,7 @@ export const NavBar = ({ queryPag }) => {
   return (
     <>
       <div className="logo">
-        <div className="logo__icon">
-          <img src={logo} alt="" className="logo__icon__sun" />
-        </div>
+        <img src={logo} alt="" className="logo__icon" />
         <div className="logo__txt">METEOROLOG</div>
       </div>
 
