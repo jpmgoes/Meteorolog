@@ -8,8 +8,8 @@ export async function getLocation(country) {
 
 export function formatLocation(location, char) {
   const regex = /\'\'./g;
-  let locationFormat = location.split(" ").join("").replace(regex, "");
-  let arrLocation = locationFormat.split("'");
+  const locationFormat = location.split(" ").join("").replace(regex, "");
+  const arrLocation = locationFormat.split("'");
   const secToMin = +arrLocation[1] / 60;
   const secToGrau = secToMin / 60;
   const minToGrau = +arrLocation[0].split("°")[1] / 60;

@@ -4,7 +4,7 @@ import london from "../../img/london.jpg";
 import kyoto from "../../img/kyoto.jpg";
 import chengdu from "../../img/chengdu.jpg";
 import sun from "../../img/sun.svg";
-import Icon from "supercons";
+import moon from "../../img/moon.svg";
 
 function displayCityTime(offset) {
   const aDate = new Date();
@@ -28,8 +28,9 @@ const arrLocation = [
 
 export const ForecastCardsContent = ({ setName, setLocation, location }) => {
   const items = new Array(arrTime.length).fill(null).map((_, index) => {
-    const time = displayCityTime(arrTime[index]);
+    let time = displayCityTime(arrTime[index]);
     const hour = +displayCityTime(arrTime[index]).split(":")[0];
+    if (hour < 10) time = "0" + time;
     const countryName = arrNameTime[index];
     return (
       <div
@@ -46,19 +47,9 @@ export const ForecastCardsContent = ({ setName, setLocation, location }) => {
           >
             <div className="forecast-cards__item__img__icon">
               {6 <= hour && hour <= 18 ? (
-                <img
-                  src={sun}
-                  alt=""
-                  style={{
-                    width: "10px",
-                    height: "10px",
-                    position: "absolute;",
-                    bottom: "91px;",
-                    right: "8px;",
-                  }}
-                />
+                <img src={sun} alt="" />
               ) : (
-                <Icon glyph="moon" size={10} />
+                <img src={moon} alt="" />
               )}
             </div>
             <div className="forecast-cards__item__img__time" key={index}>
