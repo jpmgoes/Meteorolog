@@ -3,8 +3,9 @@ import React from "react";
 import Icon from "supercons";
 import { Link } from "react-router-dom";
 import logo from "../img/icons/logo.svg";
+import { SideBarCard } from "../components/SideBarCard";
 
-export const NavBar = ({ queryPag }) => {
+export const NavBar = ({ queryPag, dataToSideCard }) => {
   function focusPage(queryPag, query) {
     if (queryPag === query)
       return {
@@ -48,6 +49,8 @@ export const NavBar = ({ queryPag }) => {
           </div>
         </Link>
       </div>
+
+      <SideBarCard dataToSideCard={dataToSideCard} />
     </>
   );
 };

@@ -7,14 +7,17 @@ import { ForecastCards } from "../components/ForecastCardFolder/ForecastCards";
 import { Form } from "../components/Form";
 import { CardsCarousel } from "../components/CardsMaxMin/CardsCarousel";
 import { handleDataToCardsCarousel } from "../api/dataManipulation";
+import { handleDataToSideCard } from "../api/dataManipulation";
 import { MyLocation } from "../components/MyLocation";
 
 const Index = () => {
   const [input, setInput] = useState("");
-  const [location, setLocation] = useState([51.5073219, 0.1276474]);
-  // const [location, setLocation] = useState([]);
+  // const [location, setLocation] = useState([51.5073219, 0.1276474]);
+  const [location, setLocation] = useState([]);
   const [name, setName] = useState("London");
   const [dataToCardsCarousel, setDataToCardsCarousel] = useState("");
+  const [dataToSideCard, setDataToSideCard] = useState({});
+
   useEffect(() => {
     if (input)
       getLocation(input).then((data) => {
@@ -30,6 +33,7 @@ const Index = () => {
             console.log("requeste feita", weatherData);
             if (weatherData["cod"] === undefined) {
               setDataToCardsCarousel(handleDataToCardsCarousel(weatherData));
+              setDataToSideCard(handleDataToSideCard(weatherData));
             }
           });
         }
@@ -41,11 +45,12 @@ const Index = () => {
         console.log("requeste feita 2", weatherData);
         if (weatherData["cod"] === undefined) {
           setDataToCardsCarousel(handleDataToCardsCarousel(weatherData));
+          setDataToSideCard(handleDataToSideCard(weatherData));
         }
       });
   }, [location]);
   return (
-    <Layout queryPag={"navbar__dashboard"}>
+    <Layout queryPag={"navbar__dashboard"} dataToSideCard={dataToSideCard}>
       <div className="main__square__right__search">
         <Form
           input={input}

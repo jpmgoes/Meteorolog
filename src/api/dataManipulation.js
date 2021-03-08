@@ -106,12 +106,14 @@ export function isDatasetEqual(oldDataset, newDataset) {
 }
 
 // toCardsCarousel
-function getMonthAndDate(dt) {
+function formatDate(dt, bool = false) {
   const fullDate = new Date(dt * 1000).toString();
   const fullDateSplited = fullDate.split(" ");
-  const month = fullDateSplited[0];
+  const weekDay = fullDateSplited[0];
+  const month = fullDateSplited[1];
   const day = fullDateSplited[2];
-  return `${day} ${month}`;
+  if (bool) return `${weekDay}, ${day} ${month}`;
+  return `${day} ${weekDay}`;
 }
 function formatMinAndMax(min, max) {
   let intMax = Math.round(max);
@@ -127,15 +129,37 @@ export function handleDataToCardsCarousel({ daily }) {
     icon: [],
   };
   for (const day of daily) {
-    data.day.push(getMonthAndDate(day["dt"]));
+    data.day.push(formatDate(day["dt"]));
 
     const max = day["temp"]["max"];
     const min = day["temp"]["min"];
     data.minMax.push(formatMinAndMax(min, max));
     let icon = day["weather"][0]["icon"];
-    if ("01n 03n 04n 09n 11n 13n 50n".includes(icon))
-      icon = icon.replace("n", "d");
-    data.icon.push(icon);
+    data.icon.push(formatIcon(icon));
   }
+  return data;
+}
+function formatIcon(icon) {
+  if ("01n 03n 04n 09n 11n 13n 50n".includes(icon))
+    return icon.replace("n", "d");
+  return icon;
+}
+function mPerSecToKmPerH(value) {
+  return (value * 3.708).toFixed(2);
+}
+export function handleDataToSideCard({ current, minutely }) {
+  let hour = new Date().getHours();
+  let minutes = new Date().getMinutes();
+  if (hour < 10) hour = "0" + hour;
+  if (minutes < 10) minutes = "0" + minutes;
+
+  const data = {
+    dt: formatDate(current["dt"], true),
+    time: `${hour}:${minutes}`,
+    icon: formatIcon(current["weather"][0]["icon"]),
+    temp: current["temp"].toFixed(0),
+    wind_speed: mPerSecToKmPerH(current["wind_speed"]),
+    precipitation: minutely[30]["precipitation"], // forecast in 30 minutes
+  };
   return data;
 }
