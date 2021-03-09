@@ -1,14 +1,20 @@
+import { Bar } from "./Bar";
+
 export const SideBarCard = ({
   dataToSideCard,
   country,
   name,
   systemPattern,
 }) => {
+  console.log(dataToSideCard);
   if (!dataToSideCard) return <></>;
   const icon = dataToSideCard["icon"];
   const hour = dataToSideCard["time"];
   const date = dataToSideCard["dt"];
   const temp = dataToSideCard["temp"];
+  const precip = dataToSideCard["precipitation"];
+  const wind = dataToSideCard["wind_speed"];
+  const humidity = dataToSideCard["humidity"];
   return (
     <div className="side-bar-card">
       <div className="side-bar-card__square">
@@ -33,6 +39,31 @@ export const SideBarCard = ({
             </div>
             <div className="side-bar-card__square__middle__location__country">
               {country}
+            </div>
+          </div>
+        </div>
+        <div className="side-bar-card__square__foot">
+          <div className="side-bar-card__square__foot__percent">
+            <div className="side-bar-card__square__foot__percent__humi">
+              Humidity:
+              <div className="side-bar-card__square__foot__percent__humi__txt">
+                {humidity}%
+              </div>
+            </div>
+            <Bar porc={humidity} />
+            <div className="side-bar-card__square__foot__percent__preci">
+              Precipitation:
+              <div className="side-bar-card__square__foot__percent__preci__txt">
+                {precip ?? "0"}mm
+              </div>
+            </div>
+            <Bar porc={precip * 100} />
+          </div>
+          <div className="side-bar-card__square__foot__wind">
+            Wind:
+            <div className="side-bar-card__square__foot__wind__txt">
+              {wind + " "}
+              {systemPattern === "metric" ? "Km/h" : "Mph"}
             </div>
           </div>
         </div>

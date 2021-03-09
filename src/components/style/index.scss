@@ -104,10 +104,42 @@
     border-radius: 1rem;
     padding: 10%;
     margin-bottom: 10px;
+    @media screen and (min-width: 920px) {
+      padding: 20px;
+    }
+    &__foot {
+      margin-top: 10px;
+      &__wind {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        font-size: 0.8rem;
+        &__txt {
+          font-weight: 600;
+          font-size: 0.7rem;
+        }
+      }
+      &__percent {
+        font-size: 0.8rem;
+        &__preci {
+          justify-content: space-between;
+        }
+        &__humi {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          &__txt {
+            font-weight: 600;
+            font-size: 0.7rem;
+          }
+        }
+      }
+    }
     &__middle {
       @extend %flexCenter;
       flex-flow: column;
-      margin-top: 40px;
+      margin-top: 30px;
+
       &__location {
         @extend %flexCenter;
         flex-flow: column;
@@ -115,6 +147,7 @@
         h2 {
           font-weight: 600;
           margin: 0;
+          font-size: 1.2rem;
         }
         &__country {
           font-size: 0.8rem;
@@ -123,6 +156,7 @@
       &__temp {
         @extend %flexCenter;
         font-size: 2rem;
+        margin-bottom: 3px;
       }
     }
     &__top {
@@ -152,4 +186,10 @@
       }
     }
   }
+}
+.bar {
+  width: 100%;
+  height: 3px;
+  margin-bottom: 10%;
+  background-color: #dbdff4;
 }

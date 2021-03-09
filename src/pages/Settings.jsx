@@ -1,7 +1,7 @@
 import React from "react";
 import { Layout } from "../layout/Layout";
 
-const Settings = ({ name, country, dataToSideCard }) => {
+const Settings = ({ name, country, dataToSideCard, systemPattern }) => {
   console.log(name);
   return (
     <div>
@@ -10,6 +10,7 @@ const Settings = ({ name, country, dataToSideCard }) => {
         country={country}
         name={name}
         dataToSideCard={dataToSideCard}
+        systemPattern={systemPattern}
       ></Layout>
     </div>
   );

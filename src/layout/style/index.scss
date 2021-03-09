@@ -69,7 +69,9 @@
   z-index: -5;
   width: 100vw;
   height: 100vh;
-  position: fixed;
+  position: relative;
+  z-index: 100;
+  top: -3vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -82,7 +84,7 @@
   &__square {
     @media only screen and (max-width: 768px) {
       position: relative;
-      top: -30px;
+      // top: -30px;
     }
     width: 80vw;
     height: 80vh;

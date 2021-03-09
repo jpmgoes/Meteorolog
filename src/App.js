@@ -18,6 +18,7 @@ function App() {
   const [input, setInput] = useState("");
   const [location, setLocation] = useState([]);
   // const [location, setLocation] = useState([51.5073219, 0.1276474]);
+  // eslint-disable-next-line
   const [systemPattern, setSystemPattern] = useState("metric");
   const [dataToCardsCarousel, setDataToCardsCarousel] = useState("");
   useEffect(() => {
@@ -42,6 +43,7 @@ function App() {
           });
         }
       });
+    // eslint-disable-next-line
   }, [input]);
   useEffect(() => {
     if (location.length > 0)

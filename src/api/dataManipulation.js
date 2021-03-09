@@ -157,7 +157,8 @@ export function handleDataToSideCard({ current, minutely, timezone_offset }) {
     icon: formatIcon(current["weather"][0]["icon"]),
     temp: temp > 0 ? "+" + temp.toFixed(0) : temp.toFixed(0),
     wind_speed: mPerSecToKmPerH(current["wind_speed"]),
-    precipitation: minutely ? minutely[30]["precipitation"] : false, // forecast in 30 minutes
+    precipitation: minutely ? minutely[0]["precipitation"] : null, // forecast in 30 minutes
+    humidity: current["humidity"],
   };
   return data;
 }
