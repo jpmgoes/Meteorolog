@@ -16,8 +16,8 @@ function App() {
   const [country, setCountry] = useState("England");
   const [dataToSideCard, setDataToSideCard] = useState({});
   const [input, setInput] = useState("");
-  const [location, setLocation] = useState([]);
-  // const [location, setLocation] = useState([51.5073219, 0.1276474]);
+  // const [location, setLocation] = useState([]);
+  const [location, setLocation] = useState([51.5073219, 0.1276474]);
   // eslint-disable-next-line
   const [systemPattern, setSystemPattern] = useState("metric");
   const [dataToCardsCarousel, setDataToCardsCarousel] = useState("");
