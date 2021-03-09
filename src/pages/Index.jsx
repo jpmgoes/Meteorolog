@@ -13,6 +13,7 @@ const Index = ({
   setInput,
   setLocation,
   dataToCardsCarousel,
+  systemPattern,
 }) => {
   return (
     <Layout
@@ -20,6 +21,7 @@ const Index = ({
       dataToSideCard={dataToSideCard}
       country={country}
       name={name}
+      systemPattern={systemPattern}
     >
       <div className="main__square__right__search">
         <Form setInput={setInput} />

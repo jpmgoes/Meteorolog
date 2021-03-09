@@ -1,6 +1,12 @@
 import { NavBar } from "./NavBar";
 
-export const MobileMenu = ({ queryPag, dataToSideCard, country, name }) => {
+export const MobileMenu = ({
+  queryPag,
+  dataToSideCard,
+  country,
+  name,
+  systemPattern,
+}) => {
   return (
     <>
       <div className="mobile-block"></div>
@@ -11,6 +17,7 @@ export const MobileMenu = ({ queryPag, dataToSideCard, country, name }) => {
             dataToSideCard={dataToSideCard}
             country={country}
             name={name}
+            systemPattern={systemPattern}
           />
         </div>
       </div>

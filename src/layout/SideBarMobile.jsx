@@ -2,7 +2,13 @@ import { useState } from "react";
 import { Burger } from "./Burger";
 import { MobileMenu } from "./MobileMenu";
 
-export const SideBarMobile = ({ queryPag, dataToSideCard, country, name }) => {
+export const SideBarMobile = ({
+  queryPag,
+  dataToSideCard,
+  country,
+  name,
+  systemPattern,
+}) => {
   const [open, setOpen] = useState(true);
 
   return (
@@ -14,6 +20,7 @@ export const SideBarMobile = ({ queryPag, dataToSideCard, country, name }) => {
         dataToSideCard={dataToSideCard}
         country={country}
         name={name}
+        systemPattern={systemPattern}
       />
       <div className="sidebar__forcast-card"></div>
     </nav>

@@ -1,4 +1,9 @@
-export const SideBarCard = ({ dataToSideCard, country, name }) => {
+export const SideBarCard = ({
+  dataToSideCard,
+  country,
+  name,
+  systemPattern,
+}) => {
   if (!dataToSideCard) return <></>;
   const icon = dataToSideCard["icon"];
   const hour = dataToSideCard["time"];
@@ -18,7 +23,10 @@ export const SideBarCard = ({ dataToSideCard, country, name }) => {
           </div>
         </div>
         <div className="side-bar-card__square__middle">
-          <div className="side-bar-card__square__middle__temp">{temp}</div>
+          <div className="side-bar-card__square__middle__temp">
+            {temp}
+            {systemPattern === "metric" ? "°C" : "°F"}
+          </div>
           <div className="side-bar-card__square__middle__location">
             <div className="side-bar-card__square__middle__location__city">
               <h2>{name}</h2>

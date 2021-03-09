@@ -168,7 +168,8 @@ export function displayCityTime(offset) {
   const newdate = new Date(utc + 3600000 * offset);
 
   let hour = +newdate.toLocaleString().split(" ")[1].split(":")[0];
-  if (offset >= 5 || offset <= -5) hour = hour + 12;
+
+  if (offset >= 6 || offset <= -6) hour = hour + 12;
   if (hour === 24) {
     hour = 12;
     if (offset >= 5 || offset <= -5) hour = 0;

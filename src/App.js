@@ -18,7 +18,7 @@ function App() {
   const [input, setInput] = useState("");
   const [location, setLocation] = useState([]);
   // const [location, setLocation] = useState([51.5073219, 0.1276474]);
-
+  const [systemPattern, setSystemPattern] = useState("metric");
   const [dataToCardsCarousel, setDataToCardsCarousel] = useState("");
   useEffect(() => {
     if (input && input.toLowerCase() !== name.toLowerCase())
@@ -62,18 +62,16 @@ function App() {
           render={(props) => (
             <Index
               {...props}
-              name={name}
               setName={setName}
+              name={name}
               country={country}
               setCountry={setCountry}
               dataToSideCard={dataToSideCard}
               setDataToSideCard={setDataToSideCard}
-              input={input}
-              location={location}
-              dataToCardsCarousel={dataToCardsCarousel}
               setInput={setInput}
               setLocation={setLocation}
-              setDataToCardsCarousel={setDataToCardsCarousel}
+              dataToCardsCarousel={dataToCardsCarousel}
+              systemPattern={systemPattern}
             />
           )}
         />
@@ -86,6 +84,7 @@ function App() {
               name={name}
               country={country}
               dataToSideCard={dataToSideCard}
+              systemPattern={systemPattern}
             />
           )}
         />

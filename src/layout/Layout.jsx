@@ -9,6 +9,7 @@ export const Layout = ({
   queryPag,
   country,
   name,
+  systemPattern,
 }) => {
   return (
     <>
@@ -21,12 +22,14 @@ export const Layout = ({
               dataToSideCard={dataToSideCard}
               country={country}
               name={name}
+              systemPattern={systemPattern}
             />
             <SideBarDesktop
               queryPag={queryPag}
               dataToSideCard={dataToSideCard}
               country={country}
               name={name}
+              systemPattern={systemPattern}
             />
           </div>
           <div className="main__square__rigth">{children}</div>

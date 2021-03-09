@@ -5,7 +5,13 @@ import { Link } from "react-router-dom";
 import logo from "../img/icons/logo.svg";
 import { SideBarCard } from "../components/SideBarCard";
 
-export const NavBar = ({ queryPag, dataToSideCard, country, name }) => {
+export const NavBar = ({
+  queryPag,
+  dataToSideCard,
+  country,
+  name,
+  systemPattern,
+}) => {
   function focusPage(queryPag, query) {
     if (queryPag === query)
       return {
@@ -16,6 +22,7 @@ export const NavBar = ({ queryPag, dataToSideCard, country, name }) => {
       };
     return {};
   }
+
   return (
     <>
       <div className="logo">
@@ -54,6 +61,7 @@ export const NavBar = ({ queryPag, dataToSideCard, country, name }) => {
         dataToSideCard={dataToSideCard}
         country={country}
         name={name}
+        systemPattern={systemPattern}
       />
     </>
   );
