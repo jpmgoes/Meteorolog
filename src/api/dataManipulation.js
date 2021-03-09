@@ -105,7 +105,7 @@ export function isDatasetEqual(oldDataset, newDataset) {
   return false;
 }
 
-// toCardsCarousel
+// toCards
 function formatDate(dt, bool = false) {
   const fullDate = new Date(dt * 1000).toString();
   const fullDateSplited = fullDate.split(" ");
@@ -147,19 +147,33 @@ function formatIcon(icon) {
 function mPerSecToKmPerH(value) {
   return (value * 3.708).toFixed(2);
 }
-export function handleDataToSideCard({ current, minutely }) {
-  let hour = new Date().getHours();
-  let minutes = new Date().getMinutes();
-  if (hour < 10) hour = "0" + hour;
-  if (minutes < 10) minutes = "0" + minutes;
+export function handleDataToSideCard({ current, minutely, timezone_offset }) {
+  const offSet = timezone_offset / 60 / 60;
 
+  const temp = current["temp"];
   const data = {
     dt: formatDate(current["dt"], true),
-    time: `${hour}:${minutes}`,
+    time: displayCityTime(offSet),
     icon: formatIcon(current["weather"][0]["icon"]),
-    temp: current["temp"].toFixed(0),
+    temp: temp > 0 ? "+" + temp.toFixed(0) : temp.toFixed(0),
     wind_speed: mPerSecToKmPerH(current["wind_speed"]),
-    precipitation: minutely[30]["precipitation"], // forecast in 30 minutes
+    precipitation: minutely ? minutely[30]["precipitation"] : false, // forecast in 30 minutes
   };
   return data;
+}
+
+export function displayCityTime(offset) {
+  const aDate = new Date();
+  const utc = aDate.getTime() + aDate.getTimezoneOffset() * 60000;
+  const newdate = new Date(utc + 3600000 * offset);
+
+  let hour = +newdate.toLocaleString().split(" ")[1].split(":")[0];
+  if (offset >= 5 || offset <= -5) hour = hour + 12;
+  if (hour === 24) {
+    hour = 12;
+    if (offset >= 5 || offset <= -5) hour = 0;
+  }
+  if (hour < 10) hour = "0" + hour;
+  const minutes = newdate.toLocaleString().split(" ")[1].split(":")[1];
+  return `${hour}:${minutes}`;
 }

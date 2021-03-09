@@ -3,21 +3,20 @@ import amsterdam from "../../img/jpg/amsterdam.jpg";
 import london from "../../img/jpg/london.jpg";
 import kyoto from "../../img/jpg/kyoto.jpg";
 import chengdu from "../../img/jpg/chengdu.jpg";
+import { displayCityTime } from "../../api/dataManipulation";
 const sun = "./img/icons/weather/01d.svg";
 const moon = "./img/icons/weather/01n.svg";
 
-function displayCityTime(offset) {
-  const aDate = new Date();
-  const utc = aDate.getTime() + aDate.getTimezoneOffset() * 60000;
-  const newdate = new Date(utc + 3600000 * offset);
-  const hour = newdate.toLocaleString().split(" ")[1].split(":")[0];
-  const minutes = newdate.toLocaleString().split(" ")[1].split(":")[1];
-  return hour + ":" + minutes;
-}
-
 const imgArr = [montreal, amsterdam, london, kyoto, chengdu];
 const arrTime = [-5, 1, 0, 9, 8];
-const arrNameTime = ["Montreal", "Amsterdam", "London", "Kyoto", "Chengdu"];
+const arrNameTime = [
+  "Montreal",
+  "Amsterdam",
+  "London",
+  "Kyoto",
+  "Chengdu",
+  "China",
+];
 const arrLocation = [
   [45.4972159, -73.6103642],
   [51.4371483, 5.9799001],
@@ -25,19 +24,20 @@ const arrLocation = [
   [35.021041, 135.7556075],
   [30.6598628, 104.0633717],
 ];
+const arrCountry = ["Canada", "Netherlands", "England", "Japan"];
 
-export const ForecastCardsContent = ({ setName, setLocation, location }) => {
+export const ForecastCardsContent = ({ setName, setLocation, setCountry }) => {
   const items = new Array(arrTime.length).fill(null).map((_, index) => {
     let time = displayCityTime(arrTime[index]);
     const hour = +displayCityTime(arrTime[index]).split(":")[0];
-    if (hour < 10) time = "0" + time;
-    const countryName = arrNameTime[index];
+    const cityName = arrNameTime[index];
     return (
       <div
         className="forecast-cards"
         onClick={() => {
-          setName(countryName);
+          setName(cityName);
           setLocation(arrLocation[index]);
+          setCountry(arrCountry[index]);
         }}
       >
         <div className="forecast-cards__item">
@@ -56,7 +56,7 @@ export const ForecastCardsContent = ({ setName, setLocation, location }) => {
               <div className="forecast-cards__item__img__time__now">{time}</div>
             </div>
           </div>
-          {countryName}
+          {cityName}
         </div>
       </div>
     );

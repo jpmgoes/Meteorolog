@@ -1,13 +1,32 @@
-export const SideBarCard = ({ dataToSideCard }) => {
+export const SideBarCard = ({ dataToSideCard, country, name }) => {
   if (!dataToSideCard) return <></>;
   const icon = dataToSideCard["icon"];
-  console.log(dataToSideCard);
+  const hour = dataToSideCard["time"];
+  const date = dataToSideCard["dt"];
+  const temp = dataToSideCard["temp"];
   return (
     <div className="side-bar-card">
       <div className="side-bar-card__square">
         <div className="side-bar-card__square__top">
           <img src={`./img/icons/weather/${icon}.svg`} alt="" />
-          Today
+          <div className="side-bar-card__square__top__date">
+            <div className="side-bar-card__square__top__date__today">Today</div>
+            <div className="side-bar-card__square__top__date__hour">
+              <h5>{hour}</h5>
+              <p>{date}</p>
+            </div>
+          </div>
+        </div>
+        <div className="side-bar-card__square__middle">
+          <div className="side-bar-card__square__middle__temp">{temp}</div>
+          <div className="side-bar-card__square__middle__location">
+            <div className="side-bar-card__square__middle__location__city">
+              <h2>{name}</h2>
+            </div>
+            <div className="side-bar-card__square__middle__location__country">
+              {country}
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -3,7 +3,13 @@ import { SideBarMobile } from "./SideBarMobile";
 import { Background } from "./Background";
 import SideBarDesktop from "./SideBarDesktop";
 
-export const Layout = ({ dataToSideCard, children, queryPag }) => {
+export const Layout = ({
+  dataToSideCard,
+  children,
+  queryPag,
+  country,
+  name,
+}) => {
   return (
     <>
       <Background />
@@ -13,10 +19,14 @@ export const Layout = ({ dataToSideCard, children, queryPag }) => {
             <SideBarMobile
               queryPag={queryPag}
               dataToSideCard={dataToSideCard}
+              country={country}
+              name={name}
             />
             <SideBarDesktop
               queryPag={queryPag}
               dataToSideCard={dataToSideCard}
+              country={country}
+              name={name}
             />
           </div>
           <div className="main__square__rigth">{children}</div>

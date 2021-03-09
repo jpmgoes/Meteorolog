@@ -3,7 +3,7 @@ import { Carousel } from "../../layout/carousel/Carousel";
 import { ForecastCardsContent } from "./ForecastCardsContent";
 import "./style/style.scss";
 
-export const ForecastCards = ({ setName, setLocation, location }) => {
+export const ForecastCards = ({ setName, setLocation, setCountry }) => {
   return (
     <div>
       <h3> Weather Forecast </h3>
@@ -11,7 +11,7 @@ export const ForecastCards = ({ setName, setLocation, location }) => {
         <ForecastCardsContent
           setName={setName}
           setLocation={setLocation}
-          location={location}
+          setCountry={setCountry}
         />
       </Carousel>
     </div>
