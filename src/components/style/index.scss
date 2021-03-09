@@ -92,9 +92,10 @@
   margin-top: 26vh;
   width: 100%;
   height: 365px;
-  background: #1a3754;
+  background: transparent;
   display: flex;
   justify-content: center;
+  flex-flow: wrap;
   @media screen and (max-width: 920px) {
     margin-top: 10vh;
   }
@@ -114,20 +115,34 @@
         justify-content: space-evenly;
         align-items: center;
         font-size: 0.8rem;
+        flex-flow: wrap;
         &__txt {
           font-weight: 600;
           font-size: 0.7rem;
+          @media screen and (max-width: 920px) {
+            margin-top: -5px;
+            font-size: 0.5rem;
+          }
         }
       }
       &__percent {
         font-size: 0.8rem;
         &__preci {
+          display: flex;
           justify-content: space-between;
+          flex-flow: wrap;
+          @media screen and (max-width: 360px) {
+            font-size: 0.6rem;
+          }
         }
         &__humi {
           display: flex;
           justify-content: space-between;
           align-items: center;
+          flex-flow: wrap;
+          @media screen and (max-width: 360px) {
+            font-size: 0.6rem;
+          }
           &__txt {
             font-weight: 600;
             font-size: 0.7rem;
@@ -148,15 +163,24 @@
           font-weight: 600;
           margin: 0;
           font-size: 1.2rem;
+          @media screen and (max-width: 360px) {
+            font-size: 1rem;
+          }
         }
         &__country {
           font-size: 0.8rem;
+          @media screen and (max-width: 360px) {
+            font-size: 0.6rem;
+          }
         }
       }
       &__temp {
         @extend %flexCenter;
         font-size: 2rem;
         margin-bottom: 3px;
+        @media screen and (max-width: 360px) {
+          font-size: 1.4rem;
+        }
       }
     }
     &__top {
@@ -167,6 +191,9 @@
         &__today {
           font-size: 1.18rem;
           font-weight: 600;
+          @media screen and (max-width: 280px) {
+            font-size: 0.8rem;
+          }
         }
         &__hour {
           margin-top: 6px;
@@ -192,4 +219,7 @@
   height: 3px;
   margin-bottom: 10%;
   background-color: #dbdff4;
+}
+.speedometer-general {
+  padding-top: 13px;
 }

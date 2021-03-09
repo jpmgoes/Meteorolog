@@ -1,4 +1,5 @@
 import { Bar } from "./Bar";
+import { Speedometer } from "./Speedometer";
 
 export const SideBarCard = ({
   dataToSideCard,
@@ -12,7 +13,7 @@ export const SideBarCard = ({
   const hour = dataToSideCard["time"];
   const date = dataToSideCard["dt"];
   const temp = dataToSideCard["temp"];
-  const precip = dataToSideCard["precipitation"];
+  let precip = dataToSideCard["precipitation"];
   const wind = dataToSideCard["wind_speed"];
   const humidity = dataToSideCard["humidity"];
   return (
@@ -54,6 +55,7 @@ export const SideBarCard = ({
             <div className="side-bar-card__square__foot__percent__preci">
               Precipitation:
               <div className="side-bar-card__square__foot__percent__preci__txt">
+                {precip > 1 && precip !== null ? (precip = 1) : ""}
                 {precip ?? "0"}mm
               </div>
             </div>
@@ -61,6 +63,7 @@ export const SideBarCard = ({
           </div>
           <div className="side-bar-card__square__foot__wind">
             Wind:
+            <Speedometer vel={wind} />
             <div className="side-bar-card__square__foot__wind__txt">
               {wind + " "}
               {systemPattern === "metric" ? "Km/h" : "Mph"}

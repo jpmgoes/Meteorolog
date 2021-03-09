@@ -170,10 +170,11 @@ export function displayCityTime(offset) {
 
   let hour = +newdate.toLocaleString().split(" ")[1].split(":")[0];
 
-  if (offset >= 6 || offset <= -6) hour = hour + 12;
+  if (offset >= -6 && offset <= 6) hour = hour + 12;
+
   if (hour === 24) {
     hour = 12;
-    if (offset >= 5 || offset <= -5) hour = 0;
+    if (offset >= -6 && offset <= 6) hour = 0;
   }
   if (hour < 10) hour = "0" + hour;
   const minutes = newdate.toLocaleString().split(" ")[1].split(":")[1];
