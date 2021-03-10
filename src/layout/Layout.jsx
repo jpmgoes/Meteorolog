@@ -5,10 +5,7 @@ import SideBarDesktop from "./SideBarDesktop";
 import { useContext } from "react";
 import { LocationInfoContext } from "../App";
 
-export const Layout = ({ children, queryPag }) => {
-  const { dataToSideCard, country, name, systemPattern } = useContext(
-    LocationInfoContext
-  );
+
   return (
     <>
       <Background />
