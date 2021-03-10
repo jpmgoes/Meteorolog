@@ -1,51 +1,21 @@
-import { useContext } from "react";
-
 import { Layout } from "../layout/Layout";
 import { ForecastCards } from "../components/ForecastCardFolder/ForecastCards";
 import { Form } from "../components/Form";
 import { CardsCarousel } from "../components/CardsMaxMin/CardsCarousel";
 import { MyLocation } from "../components/MyLocation";
-import { LocationInfoContext } from "../App";
 
 const Index = () => {
-  const {
-    setName,
-    name,
-    setCountry,
-    country,
-    setDataToSideCard,
-    dataToSideCard,
-    setInput,
-    setLocation,
-    dataToCardsCarousel,
-    systemPattern,
-  } = useContext(LocationInfoContext);
-
   return (
-    <Layout
-      queryPag={"navbar__dashboard"}
-      dataToSideCard={dataToSideCard}
-      country={country}
-      name={name}
-      systemPattern={systemPattern}
-    >
+    <Layout queryPag={"navbar__dashboard"}>
       <div className="main__square__right__search">
-        <Form setInput={setInput} />
-        <MyLocation
-          setName={setName}
-          setLocation={setLocation}
-          setCountry={setCountry}
-        />
+        <Form />
+        <MyLocation />
       </div>
       <div className="main__square__right__weather-forecast">
-        <ForecastCards
-          setName={setName}
-          setLocation={setLocation}
-          setCountry={setCountry}
-        />
+        <ForecastCards />
       </div>
       <div className="main__square__right__cards">
-        <CardsCarousel name={name} data={dataToCardsCarousel} />
+        <CardsCarousel />
       </div>
       <div className="main__square__right__weather-graph"></div>
     </Layout>
