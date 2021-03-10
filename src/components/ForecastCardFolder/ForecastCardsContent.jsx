@@ -1,9 +1,11 @@
+import { useContext } from "react";
 import montreal from "../../img/jpg/montreal.jpg";
 import amsterdam from "../../img/jpg/amsterdam.jpg";
 import london from "../../img/jpg/london.jpg";
 import kyoto from "../../img/jpg/kyoto.jpg";
 import chengdu from "../../img/jpg/chengdu.jpg";
 import { displayCityTime } from "../../api/dataManipulation";
+import { LocationInfoContext } from "../../App";
 const sun = "./img/icons/weather/01d.svg";
 const moon = "./img/icons/weather/01n.svg";
 
@@ -26,7 +28,8 @@ const arrLocation = [
 ];
 const arrCountry = ["Canada", "Netherlands", "England", "Japan"];
 
-export const ForecastCardsContent = ({ setName, setLocation, setCountry }) => {
+export const ForecastCardsContent = () => {
+  const { setName, setLocation, setCountry } = useContext(LocationInfoContext);
   const items = new Array(arrTime.length).fill(null).map((_, index) => {
     let time = displayCityTime(arrTime[index]);
     const hour = +displayCityTime(arrTime[index]).split(":")[0];
