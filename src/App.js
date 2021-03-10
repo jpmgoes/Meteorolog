@@ -23,6 +23,7 @@ function App() {
   // eslint-disable-next-line
   const [systemPattern, setSystemPattern] = useState("metric");
   const [dataToCardsCarousel, setDataToCardsCarousel] = useState("");
+  const [offset, setOffset] = useState("");
   useEffect(() => {
     if (input && input.toLowerCase() !== name.toLowerCase())
       getLocation(input).then((data) => {
@@ -54,6 +55,8 @@ function App() {
         if (weatherData["cod"] === undefined) {
           setDataToCardsCarousel(handleDataToCardsCarousel(weatherData));
           setDataToSideCard(handleDataToSideCard(weatherData));
+          console.log("now", weatherData["current"]["dt"]);
+          setOffset(weatherData["current"]["dt"]);
         }
       });
   }, [location]);
@@ -76,6 +79,7 @@ function App() {
                 setLocation,
                 dataToCardsCarousel,
                 systemPattern,
+                offset,
               }}
             >
               <Index {...props} />

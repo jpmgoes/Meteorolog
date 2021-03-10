@@ -29,9 +29,12 @@ const arrLocation = [
 const arrCountry = ["Canada", "Netherlands", "England", "Japan"];
 
 export const ForecastCardsContent = () => {
-  const { setName, setLocation, setCountry } = useContext(LocationInfoContext);
+  const { setName, setLocation, setCountry, offset } = useContext(
+    LocationInfoContext
+  );
+
   const items = new Array(arrTime.length).fill(null).map((_, index) => {
-    let time = displayCityTime(arrTime[index]);
+    let time = displayCityTime(arrTime[index], offset);
     const hour = +displayCityTime(arrTime[index]).split(":")[0];
     const cityName = arrNameTime[index];
     return (

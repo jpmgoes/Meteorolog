@@ -168,15 +168,14 @@ export function displayCityTime(offset) {
   const utc = aDate.getTime() + aDate.getTimezoneOffset() * 60000;
   const newdate = new Date(utc + 3600000 * offset);
 
-  let hour = +newdate.toLocaleString().split(" ")[1].split(":")[0];
-
-  if (offset >= -6 && offset <= 6) hour = hour + 12;
-
-  if (hour === 24) {
-    hour = 12;
-    if (offset >= -6 && offset <= 6) hour = 0;
-  }
-  if (hour < 10) hour = "0" + hour;
+  const defaultDate = new Date();
+  const hour = defaultDate.toString().split(" ")[4].split(":")[0];
+  const localoOffset =
+    +defaultDate.toString().split(" ")[5].replace("GMT", "") / 100;
+  const defaultHour = hour - localoOffset;
+  let actualHour = defaultHour + offset;
+  if (actualHour >= 24) actualHour -= 24;
+  if (actualHour < 10) actualHour = "0" + actualHour;
   const minutes = newdate.toLocaleString().split(" ")[1].split(":")[1];
-  return `${hour}:${minutes}`;
+  return `${actualHour}:${minutes}`;
 }
