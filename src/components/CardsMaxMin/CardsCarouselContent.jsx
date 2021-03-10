@@ -1,11 +1,8 @@
 import "./style/index.scss";
-import { LocationInfoContext } from "../../App";
-import { useContext } from "react";
 
-export const CardsCarouselContent = () => {
+export const CardsCarouselContent = ({ data }) => {
   const arr = new Array(8).fill(null);
-  const { dataToCardsCarousel } = useContext(LocationInfoContext);
-  const data = dataToCardsCarousel;
+
   return (
     <>
       {arr.map((_, index) => {
