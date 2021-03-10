@@ -1,10 +1,7 @@
-import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { LocationInfoContext } from "../App";
 import "./style/index.scss";
 
-export const Form = () => {
-  const { setInput } = useContext(LocationInfoContext);
+export const Form = ({ setInput, setLocation, setName }) => {
   const { handleSubmit, register } = useForm();
   const onSubmit = handleSubmit((data) => {
     setInput(data.location);
