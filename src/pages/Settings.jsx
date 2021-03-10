@@ -1,16 +1,9 @@
-import React from "react";
 import { Layout } from "../layout/Layout";
 
-const Settings = ({ name, country, dataToSideCard, systemPattern }) => {
+const Settings = () => {
   return (
     <div>
-      <Layout
-        queryPag={"navbar__settings"}
-        country={country}
-        name={name}
-        dataToSideCard={dataToSideCard}
-        systemPattern={systemPattern}
-      ></Layout>
+      <Layout queryPag={"navbar__settings"}></Layout>
     </div>
   );
 };

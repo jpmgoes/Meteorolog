@@ -1,23 +1,10 @@
-import React from "react";
 import { NavBar } from "./NavBar";
 
-const SideBarDesktop = ({
-  queryPag,
-  dataToSideCard,
-  country,
-  name,
-  systemPattern,
-}) => {
+const SideBarDesktop = ({ queryPag }) => {
   return (
     <nav className="sidebar-desk">
       <div className="sidebar-desk__menu">
-        <NavBar
-          queryPag={queryPag}
-          dataToSideCard={dataToSideCard}
-          country={country}
-          name={name}
-          systemPattern={systemPattern}
-        />
+        <NavBar queryPag={queryPag} />
       </div>
       <div className="sidebar-desk__forcast-card"></div>
     </nav>

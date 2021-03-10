@@ -1,17 +1,15 @@
 /* eslint-disable no-dupe-keys */
-import React from "react";
+import React, { useContext } from "react";
 import Icon from "supercons";
 import { Link } from "react-router-dom";
 import logo from "../img/icons/logo.svg";
 import { SideBarCard } from "../components/SideBarCard";
+import { LocationInfoContext } from "../App";
 
-export const NavBar = ({
-  queryPag,
-  dataToSideCard,
-  country,
-  name,
-  systemPattern,
-}) => {
+export const NavBar = ({ queryPag }) => {
+  const { dataToSideCard, country, name, systemPattern } = useContext(
+    LocationInfoContext
+  );
   function focusPage(queryPag, query) {
     if (queryPag === query)
       return {

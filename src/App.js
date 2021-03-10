@@ -86,13 +86,16 @@ function App() {
           exact
           path="/settings"
           render={(props) => (
-            <Settings
-              {...props}
-              name={name}
-              country={country}
-              dataToSideCard={dataToSideCard}
-              systemPattern={systemPattern}
-            />
+            <LocationInfoContext.Provider
+              value={{
+                name,
+                country,
+                dataToSideCard,
+                systemPattern,
+              }}
+            >
+              <Settings {...props} />
+            </LocationInfoContext.Provider>
           )}
         />
       </Switch>
