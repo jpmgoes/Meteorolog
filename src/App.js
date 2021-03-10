@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, createContext } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import {
@@ -10,6 +10,8 @@ import { getWeather } from "./api/getWeather";
 // pages
 import Index from "./pages/Index";
 import Settings from "./pages/Settings";
+
+export const LocationInfoContext = createContext();
 
 function App() {
   const [name, setName] = useState("London");
@@ -62,19 +64,22 @@ function App() {
           exact
           path="/"
           render={(props) => (
-            <Index
-              {...props}
-              setName={setName}
-              name={name}
-              country={country}
-              setCountry={setCountry}
-              dataToSideCard={dataToSideCard}
-              setDataToSideCard={setDataToSideCard}
-              setInput={setInput}
-              setLocation={setLocation}
-              dataToCardsCarousel={dataToCardsCarousel}
-              systemPattern={systemPattern}
-            />
+            <LocationInfoContext.Provider
+              value={{
+                setName,
+                name,
+                setCountry,
+                country,
+                setDataToSideCard,
+                dataToSideCard,
+                setInput,
+                setLocation,
+                dataToCardsCarousel,
+                systemPattern,
+              }}
+            >
+              <Index {...props} />
+            </LocationInfoContext.Provider>
           )}
         />
         <Route

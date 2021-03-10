@@ -2,7 +2,6 @@ import React from "react";
 import { Layout } from "../layout/Layout";
 
 const Settings = ({ name, country, dataToSideCard, systemPattern }) => {
-  console.log(name);
   return (
     <div>
       <Layout

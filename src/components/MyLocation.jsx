@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { getNameByLatAndLon } from "../api/getLocation";
+import { LocationInfoContext } from "../App";
 
-export const MyLocation = ({ setLocation, setName, setCountry }) => {
+export const MyLocation = () => {
+  const { setLocation, setName, setCountry } = useContext(LocationInfoContext);
   function getCurrentlyLocation() {
     navigator.geolocation.getCurrentPosition((location) => {
       const lat = location.coords.latitude;
