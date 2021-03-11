@@ -7,7 +7,6 @@ export const SideBarCard = ({
   name,
   systemPattern,
 }) => {
-  console.log(dataToSideCard);
   if (!dataToSideCard) return <></>;
   const icon = dataToSideCard["icon"];
   const hour = dataToSideCard["time"];

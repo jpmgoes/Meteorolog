@@ -147,16 +147,22 @@ function formatIcon(icon) {
 function mPerSecToKmPerH(value) {
   return (value * 3.708).toFixed(2);
 }
-export function handleDataToSideCard({ current, minutely, timezone_offset }) {
+export function handleDataToSideCard(
+  { current, minutely, timezone_offset },
+  systemPattern
+) {
   const offSet = timezone_offset / 60 / 60;
-
+  const windSpeed =
+    systemPattern === "metric"
+      ? mPerSecToKmPerH(current["wind_speed"])
+      : current["wind_speed"];
   const temp = current["temp"];
   const data = {
     dt: formatDate(current["dt"], true),
     time: displayCityTime(offSet),
     icon: formatIcon(current["weather"][0]["icon"]),
     temp: temp > 0 ? "+" + temp.toFixed(0) : temp.toFixed(0),
-    wind_speed: mPerSecToKmPerH(current["wind_speed"]),
+    wind_speed: windSpeed,
     precipitation: minutely ? minutely[0]["precipitation"] : null, // forecast in 30 minutes
     humidity: current["humidity"],
   };

@@ -21,9 +21,12 @@ function App() {
   // const [location, setLocation] = useState([]);
   const [location, setLocation] = useState([51.5073219, 0.1276474]);
   // eslint-disable-next-line
-  const [systemPattern, setSystemPattern] = useState("metric");
+  const [systemPattern, setSystemPattern] = useState(
+    window.localStorage.getItem("systemPattern") || "metric"
+  );
   const [dataToCardsCarousel, setDataToCardsCarousel] = useState("");
   const [offset, setOffset] = useState("");
+
   useEffect(() => {
     if (input && input.toLowerCase() !== name.toLowerCase())
       getLocation(input).then((data) => {
@@ -37,7 +40,7 @@ function App() {
           setCountry(`${localCountry}`);
           const lat = formatLocation(latitude, "S");
           const lon = formatLocation(longitude, "W");
-          getWeather(lat, lon, "metric").then((weatherData) => {
+          getWeather(lat, lon, systemPattern).then((weatherData) => {
             console.log("requeste feita", weatherData);
             if (weatherData["cod"] === undefined) {
               setDataToCardsCarousel(handleDataToCardsCarousel(weatherData));
@@ -50,16 +53,17 @@ function App() {
   }, [input]);
   useEffect(() => {
     if (location.length > 0)
-      getWeather(location[0], location[1], "metric").then((weatherData) => {
-        console.log("requeste feita 2", weatherData);
-        if (weatherData["cod"] === undefined) {
-          setDataToCardsCarousel(handleDataToCardsCarousel(weatherData));
-          setDataToSideCard(handleDataToSideCard(weatherData));
-          console.log("now", weatherData["current"]["dt"]);
-          setOffset(weatherData["current"]["dt"]);
+      getWeather(location[0], location[1], systemPattern).then(
+        (weatherData) => {
+          console.log("requeste feita 2", weatherData);
+          if (weatherData["cod"] === undefined) {
+            setDataToCardsCarousel(handleDataToCardsCarousel(weatherData));
+            setDataToSideCard(handleDataToSideCard(weatherData));
+            setOffset(weatherData["current"]["dt"]);
+          }
         }
-      });
-  }, [location]);
+      );
+  }, [location, systemPattern]);
   return (
     <Router>
       <Switch>
@@ -96,6 +100,7 @@ function App() {
                 country,
                 dataToSideCard,
                 systemPattern,
+                setSystemPattern,
               }}
             >
               <Settings {...props} />
