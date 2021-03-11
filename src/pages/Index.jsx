@@ -6,7 +6,7 @@ import { MyLocation } from "../components/MyLocation";
 
 const Index = () => {
   return (
-    <Layout queryPag={"navbar__dashboard"}>
+    <Layout queryPag={"navbar__dashboard"} pagName="index">
       <div className="main__square__right__search">
         <Form />
         <MyLocation />

@@ -3,7 +3,7 @@ import { SideBarMobile } from "./SideBarMobile";
 import { Background } from "./Background";
 import SideBarDesktop from "./SideBarDesktop";
 
-export const Layout = ({ children, queryPag }) => {
+export const Layout = ({ children, queryPag, pagName }) => {
   return (
     <>
       <Background />
@@ -13,7 +13,7 @@ export const Layout = ({ children, queryPag }) => {
             <SideBarMobile queryPag={queryPag} />
             <SideBarDesktop queryPag={queryPag} />
           </div>
-          <div className="main__square__rigth">{children}</div>
+          <div className={`main__square__rigth__${pagName}`}>{children}</div>
         </div>
       </div>
     </>

@@ -99,13 +99,25 @@
       border-radius: 1.5rem 0px 0px 1.5rem;
     }
     &__rigth {
-      overflow: scroll;
-      width: 100%;
-      height: 100%;
-      background-color: white;
-      border-radius: 0 1.5rem 1.5rem 0;
-      display: grid;
-      grid-template-rows: 75px 310px 2fr 2fr;
+      &__index {
+        overflow: scroll;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        border-radius: 0 1.5rem 1.5rem 0;
+        display: grid;
+        grid-template-rows: 75px 310px 2fr 2fr;
+      }
+      &__settings {
+        overflow: scroll;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        border-radius: 0 1.5rem 1.5rem 0;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+      }
     }
   }
 }
@@ -264,4 +276,23 @@
 .sidebar .mobile-menu,
 .sidebar .mobile-block {
   z-index: 100;
+}
+.systemPattern {
+  width: 65vw;
+  &__values {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+    &__default {
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 10%;
+      border-radius: 1rem;
+      background-color: #fcfcfc;
+      border: 1px solid #f4f4f4;
+    }
+  }
 }

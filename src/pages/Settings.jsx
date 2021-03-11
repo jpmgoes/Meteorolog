@@ -5,24 +5,51 @@ import { Layout } from "../layout/Layout";
 const Settings = () => {
   const { setSystemPattern, systemPattern } = useContext(LocationInfoContext);
 
-  function changeSystemPattern() {
-    const now = window.localStorage.getItem("systemPattern");
-    if (now === "metric") {
-      window.localStorage.setItem("systemPattern", "imperial");
-      setSystemPattern("imperial");
-    } else {
-      window.localStorage.setItem("systemPattern", "metric");
-      setSystemPattern("metric");
-    }
-    console.log(systemPattern);
+  function changeSystemPattern(position) {
+    const element = document.getElementsByName("systemPattern");
+    const value = element[position].value;
+    window.localStorage.setItem("systemPattern", value);
+    setSystemPattern(value);
   }
 
   return (
     <div>
-      <Layout queryPag={"navbar__settings"}>
-        <button onClick={changeSystemPattern}>
-          {window.localStorage.getItem("systemPattern")}
-        </button>
+      <Layout queryPag={"navbar__settings"} pagName="settings">
+        <div className="systemPattern">
+          <h1>System Pattern</h1>
+          <div className="systemPattern__values">
+            <div className="systemPattern__values__default">
+              <label
+                htmlFor="metric"
+                className="systemPattern__label"
+                onClick={() => changeSystemPattern(0)}
+              >
+                Metric
+              </label>
+              <input
+                type="radio"
+                name="systemPattern"
+                id="metric"
+                className="systemPattern__radio"
+                value="metric"
+                onClick={() => changeSystemPattern(0)}
+              />
+            </div>
+            <div className="systemPattern__values__default">
+              <label htmlFor="imperial" className="systemPattern__label">
+                Imperial
+              </label>
+              <input
+                type="radio"
+                name="systemPattern"
+                id="imperial"
+                className="systemPattern__radio"
+                value="imperial"
+                onClick={() => changeSystemPattern(1)}
+              />
+            </div>
+          </div>
+        </div>
       </Layout>
     </div>
   );
