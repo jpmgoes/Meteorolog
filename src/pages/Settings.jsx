@@ -23,7 +23,7 @@ const Settings = () => {
             <div className="systemPattern__values__default">
               <label
                 htmlFor="metric"
-                className="systemPattern__label"
+                className="systemPattern__values__label"
                 onClick={() => changeSystemPattern(0)}
               >
                 Metric
@@ -32,21 +32,24 @@ const Settings = () => {
                 type="radio"
                 name="systemPattern"
                 id="metric"
-                className="systemPattern__radio"
+                className="systemPattern__values__radio"
                 value="metric"
                 onClick={() => changeSystemPattern(0)}
                 checked={checked}
               />
             </div>
             <div className="systemPattern__values__default">
-              <label htmlFor="imperial" className="systemPattern__label">
+              <label
+                htmlFor="imperial"
+                className="systemPattern__values__label"
+              >
                 Imperial
               </label>
               <input
                 type="radio"
                 name="systemPattern"
                 id="imperial"
-                className="systemPattern__radio"
+                className="systemPattern__values__radio"
                 value="imperial"
                 onClick={() => changeSystemPattern(1)}
                 checked={!checked}
