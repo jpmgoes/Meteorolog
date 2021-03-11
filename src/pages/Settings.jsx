@@ -12,6 +12,8 @@ const Settings = () => {
     setSystemPattern(value);
   }
 
+  const checked = systemPattern === "metric" ? true : false;
+
   return (
     <div>
       <Layout queryPag={"navbar__settings"} pagName="settings">
@@ -33,6 +35,7 @@ const Settings = () => {
                 className="systemPattern__radio"
                 value="metric"
                 onClick={() => changeSystemPattern(0)}
+                checked={checked}
               />
             </div>
             <div className="systemPattern__values__default">
@@ -46,6 +49,7 @@ const Settings = () => {
                 className="systemPattern__radio"
                 value="imperial"
                 onClick={() => changeSystemPattern(1)}
+                checked={!checked}
               />
             </div>
           </div>
