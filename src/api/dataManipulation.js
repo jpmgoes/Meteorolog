@@ -176,10 +176,10 @@ export function displayCityTime(offset) {
 
   const defaultDate = new Date();
   const hour = defaultDate.toString().split(" ")[4].split(":")[0];
-  const localoOffset =
+  const localOffset =
     +defaultDate.toString().split(" ")[5].replace("GMT", "") / 100;
-  const defaultHour = hour - localoOffset;
-  let actualHour = defaultHour + offset;
+  const defaultHour = hour - localOffset;
+  let actualHour = Math.abs(defaultHour + offset);
   if (actualHour >= 24) actualHour -= 24;
   if (actualHour < 10) actualHour = "0" + actualHour;
   const minutes = newdate.toLocaleString().split(" ")[1].split(":")[1];

@@ -114,9 +114,9 @@
         height: 100%;
         background-color: white;
         border-radius: 0 1.5rem 1.5rem 0;
-        display: grid;
-        justify-content: center;
-        align-items: center;
+        // display: grid;
+        // justify-content: center;
+        // align-items: center;
       }
     }
   }
@@ -277,77 +277,81 @@
 .sidebar .mobile-block {
   z-index: 100;
 }
+
 //!
-@supports (-webkit-appearance: none) or (-moz-appearance: none) {
-  input[type="radio"] {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-  }
-}
 
-@supports (-webkit-appearance: none) or (-moz-appearance: none) {
-  input[type="radio"] {
-    --active: #275efe;
-    --active-inner: #fff;
-    --focus: 1px rgba(39, 94, 254, 0.25);
-    --border: #bbc1e1;
-    --border-hover: #275efe;
-    --background: #fff;
-    --disabled: #f6f8ff;
-    --disabled-inner: #e1e6f9;
-  }
-}
+// @supports (-webkit-appearance: none) or (-moz-appearance: none) {
+//   input[type="radio"] {
+//     -webkit-appearance: none;
+//     -moz-appearance: none;
+//   }
+// }
 
-input[type="radio"] {
-  --active: #275efe;
-  --border: #bbc1e190;
-  border: 3px solid var(--bc, var(--border));
-}
+// @supports (-webkit-appearance: none) or (-moz-appearance: none) {
+//   input[type="radio"] {
+//     --active: #275efe;
+//     --active-inner: #fff;
+//     --focus: 1px rgba(39, 94, 254, 0.25);
+//     --border: #bbc1e1;
+//     --border-hover: #275efe;
+//     --background: #fff;
+//     --disabled: #f6f8ff;
+//     --disabled-inner: #e1e6f9;
+//   }
+// }
 
-input[type="radio"]:checked {
-  --b: var(--active);
-  --bc: var(--active);
-}
+// input[type="radio"] {
+//   --active: #275efe;
+//   --border: #bbc1e190;
+//   border: 3px solid var(--bc, var(--border));
+// }
 
-input[type="radio"]:not(:checked):not(:disabled):hover {
-  --bc: var(--border-hover);
-}
+// input[type="radio"]:checked {
+//   --b: var(--active);
+//   --bc: var(--active);
+// }
 
-input[type="radio"] {
-  --focus: 2px rgba(39, 94, 254, 0.25);
-  outline: none;
-  transition: all 0.3s;
-}
+// input[type="radio"]:not(:checked):not(:disabled):hover {
+//   --bc: var(--border-hover);
+// }
 
-input[type="radio"]:focus {
-  box-shadow: 0 0 0 var(--focus);
-}
+// input[type="radio"] {
+//   --focus: 2px rgba(39, 94, 254, 0.25);
+//   outline: none;
+//   transition: all 0.3s;
+// }
 
-input[type="radio"] + label {
-  display: inline-block;
-  vertical-align: top;
-}
+// input[type="radio"]:focus {
+//   box-shadow: 0 0 0 var(--focus);
+// }
 
-input[type="radio"]:disabled + label {
-  cursor: not-allowed;
-}
+// input[type="radio"] + label {
+//   display: inline-block;
+//   vertical-align: top;
+// }
+
+// input[type="radio"]:disabled + label {
+//   cursor: not-allowed;
+// }
+
 //!
 .systemPattern {
   width: 65vw;
   &__values {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     height: 100%;
     &__default {
       display: flex;
       flex-flow: column wrap;
       justify-content: center;
       align-items: center;
-      padding: 10%;
-      border-radius: 1rem;
       background-color: #fcfcfc;
       border: 1px solid #f4f4f4;
+      padding: 2.5%;
+      border-radius: 0.8rem;
+      margin-left: 3%;
     }
     &__label {
       cursor: pointer;

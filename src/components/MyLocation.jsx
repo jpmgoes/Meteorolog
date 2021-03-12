@@ -8,6 +8,7 @@ export const MyLocation = () => {
     navigator.geolocation.getCurrentPosition((location) => {
       const lat = location.coords.latitude;
       const lon = location.coords.longitude;
+      console.log(lat, lon);
       setLocation([lat, lon]);
       getNameByLatAndLon(lat, lon).then((data) => {
         const name = data["results"][0]["components"]["city"];
