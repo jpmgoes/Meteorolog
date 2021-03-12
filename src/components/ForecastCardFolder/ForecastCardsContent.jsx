@@ -29,7 +29,7 @@ const arrLocation = [
 const arrCountry = ["Canada", "Netherlands", "England", "Japan"];
 
 export const ForecastCardsContent = () => {
-  const { setName, setLocation, setCountry, offset } = useContext(
+  const { setName, setLocation, setCountry, setInput, offset } = useContext(
     LocationInfoContext
   );
 
@@ -42,6 +42,7 @@ export const ForecastCardsContent = () => {
         className="forecast-cards"
         onClick={() => {
           setName(cityName);
+          setInput(cityName);
           setLocation(arrLocation[index]);
           setCountry(arrCountry[index]);
         }}
