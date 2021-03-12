@@ -35,26 +35,19 @@ function App() {
           const longitude = firstResult["annotations"]["DMS"]["lng"];
           const localName = firstResult["formatted"].split(",")[0];
           const localCountry = firstResult["components"]["country"];
-          setName(`${localName}`);
-          setCountry(`${localCountry}`);
           const lat = formatLocation(latitude, "S");
           const lon = formatLocation(longitude, "W");
-          getWeather(lat, lon, systemPattern).then((weatherData) => {
-            console.log("requeste feita", weatherData);
-            if (weatherData["cod"] === undefined) {
-              setDataToCardsCarousel(handleDataToCardsCarousel(weatherData));
-              setDataToSideCard(handleDataToSideCard(weatherData));
-            }
-          });
+          setName(`${localName}`);
+          setCountry(`${localCountry}`);
+          setLocation([lat, lon]);
         }
       });
-    // eslint-disable-next-line
-  }, [input]);
+  }, [input, name, systemPattern]);
   useEffect(() => {
     if (location.length > 0)
       getWeather(location[0], location[1], systemPattern).then(
         (weatherData) => {
-          console.log("requeste feita 2", weatherData);
+          console.log("requeste feita", weatherData);
           if (weatherData["cod"] === undefined) {
             setDataToCardsCarousel(handleDataToCardsCarousel(weatherData));
             setDataToSideCard(handleDataToSideCard(weatherData));
