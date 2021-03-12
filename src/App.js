@@ -18,7 +18,6 @@ function App() {
   const [country, setCountry] = useState("England");
   const [dataToSideCard, setDataToSideCard] = useState({});
   const [input, setInput] = useState("");
-  // const [location, setLocation] = useState([]);
   const [location, setLocation] = useState([51.5073219, 0.1276474]);
   const [systemPattern, setSystemPattern] = useState(
     window.localStorage.getItem("systemPattern") || "metric"
