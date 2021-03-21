@@ -5,7 +5,7 @@ import { LocationInfoContext } from "../App";
 export const MyLocation = () => {
   const { setLocation, setName, setCountry } = useContext(LocationInfoContext);
   function getCurrentlyLocation() {
-    navigator.geolocation.getCurrentPosition((location) => {
+    const successCallback = (location) => {
       const lat = location.coords.latitude;
       const lon = location.coords.longitude;
       console.log(lat, lon);
@@ -16,6 +16,13 @@ export const MyLocation = () => {
         setCountry(country);
         setName(name);
       });
+    };
+    const errorCallback = (errou) => {
+      console.log(errou);
+    };
+    navigator.geolocation.getCurrentPosition(successCallback, errorCallback, {
+      enableHighAccuracy: true,
+      timeout: 1000,
     });
   }
   return (

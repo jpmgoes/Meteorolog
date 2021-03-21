@@ -248,12 +248,12 @@
 .mobile-menu {
   display: flex;
   flex-flow: column nowrap;
-
   &__wrap {
     width: 100%;
-    height: 100%;
-    padding-top: 48px;
+    height: 90%;
     overflow: scroll;
+    position: relative;
+    top: 4vh;
   }
   .navbar__settings {
     display: flex;
